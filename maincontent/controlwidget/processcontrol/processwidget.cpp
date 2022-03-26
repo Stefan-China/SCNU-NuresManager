@@ -15,9 +15,7 @@ ProcessWidget::ProcessWidget(QWidget *parent)
     , m_modeType(ProcessControl::TYPE_SUCCESS)
 {
     ui->setupUi(this);
-    qDebug()<<"ProcessWidget";
     this->initValue();
-
 }
 
 

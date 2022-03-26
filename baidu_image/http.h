@@ -21,6 +21,7 @@ public:
 
     static bool post_sync(QString Url,QMap<QString,QString> header,QByteArray &requestData,QByteArray &replyData);
     static bool recieve(QString Url,QByteArray &replyData);
+
 };
 
 #endif // HTTP_H

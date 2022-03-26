@@ -53,6 +53,7 @@ public:
         if (ControlTabWidget->objectName().isEmpty())
             ControlTabWidget->setObjectName(QStringLiteral("ControlTabWidget"));
         ControlTabWidget->resize(697, 436);
+        ControlTabWidget->setMaximumSize(QSize(16777215, 16777215));
         verticalLayout = new QVBoxLayout(ControlTabWidget);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -98,7 +99,7 @@ public:
 
         retranslateUi(ControlTabWidget);
 
-        tabWidgetControl->setCurrentIndex(6);
+        tabWidgetControl->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(ControlTabWidget);

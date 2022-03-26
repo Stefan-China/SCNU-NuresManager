@@ -31,7 +31,7 @@ font: 12pt &quot;Times New Roman&quot;;
 color: rgb(95, 158, 160);</string>
      </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string>23.0 C</string>
      </property>
     </widget>
    </item>
@@ -88,7 +88,7 @@ font: 12pt &quot;Times New Roman&quot;;
 color: rgb(95, 158, 160);</string>
      </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string>27.0 %</string>
      </property>
     </widget>
    </item>
@@ -144,7 +144,7 @@ font: 12pt &quot;Times New Roman&quot;;
 color: rgb(95, 158, 160);</string>
      </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string>33.0 ug/m3</string>
      </property>
     </widget>
    </item>
@@ -212,7 +212,7 @@ font: 12pt &quot;Times New Roman&quot;;
 color: rgb(95, 158, 160);</string>
      </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string>427.0 ppm</string>
      </property>
     </widget>
    </item>
@@ -230,7 +230,7 @@ font: 12pt &quot;Times New Roman&quot;;
 color: rgb(95, 158, 160);</string>
      </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string>41.0 ug/m3</string>
      </property>
     </widget>
    </item>
@@ -248,7 +248,7 @@ font: 12pt &quot;Times New Roman&quot;;
 color: rgb(95, 158, 160);</string>
      </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string>15.0 ug/m3</string>
      </property>
     </widget>
    </item>
@@ -291,7 +291,7 @@ font: 12pt &quot;Times New Roman&quot;;
 color: rgb(95, 158, 160);</string>
      </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string>2.0 ug/m3</string>
      </property>
     </widget>
    </item>

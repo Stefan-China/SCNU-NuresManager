@@ -33,7 +33,7 @@ border-radius:10px;
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="rg">
     <widget class="QPushButton" name="btn_MinR">
@@ -62,7 +62,7 @@ QPushButton:hover#btn_MinR
       <string/>
      </property>
     </widget>
-    <widget class="MyLineEdit" name="lineEdit_CheckR">
+    <widget class="MyLineEdit" name="lineEdit_Username">
      <property name="geometry">
       <rect>
        <x>518</x>
@@ -71,14 +71,20 @@ QPushButton:hover#btn_MinR
        <height>45</height>
       </rect>
      </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>45</height>
+      </size>
+     </property>
      <property name="styleSheet">
       <string notr="true">QLineEdit{
 	font-size:20px;
 }
-QLineEdit#lineEdit_CheckR{
+QLineEdit#lineEdit_Username{
 border:1px solid rgb(211,211,211);
 }
-QLineEdit:hover#lineEdit_CheckR{
+QLineEdit:hover#lineEdit_Username{
 border:1px solid rgb(255,170,0);
 }</string>
      </property>
@@ -451,37 +457,6 @@ border-width: 0;
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="btn_getCheckNum">
-     <property name="geometry">
-      <rect>
-       <x>720</x>
-       <y>312</y>
-       <width>115</width>
-       <height>45</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton:hover{font-size:16px;
-color: rgb(255, 245, 237);
-background-color:#A9E2F3;
-border-radius:5px;
-}
-QPushButton{
-background-color:#58ACFA;
-color: rgb(255, 245, 237);
-border-radius:5px;
-}
-
-
-
-
-
-</string>
-     </property>
-     <property name="text">
-      <string>获取验证码</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
@@ -539,7 +514,7 @@ font-size:18px;
 color: rgb(110, 110, 110);</string>
      </property>
      <property name="text">
-      <string>手机验证码</string>
+      <string>人员姓名</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -566,9 +541,109 @@ color: rgb(110, 110, 110);</string>
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
+    <widget class="QComboBox" name="combo_user">
+     <property name="geometry">
+      <rect>
+       <x>716</x>
+       <y>314</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QComboBox{
+	font-size:20px;
+}
+QComboBox#combo_user{
+border:1px solid rgb(211,211,211);
+height: 50px;
+}
+QComboBox:hover#combo_user{
+border:1px solid rgb(255,170,0);
+}
+QComboBox::down-arrow#combo_user{
+background-image: url(:/image/comboBox_btn (2).png);
+background-repeat:no-repeat;
+background-position:center;
+height:5px;
+width:12px;
+}
+QComboBox::down-arrow:hover#combo_user{
+background-image: url(:/image/comboBox_btn (1).png);
+background-repeat:no-repeat;
+background-position:center;
+height:5px;
+width:12px;
+}
+QComboBox::down-arrow:checked#combo_user{
+background-image: url(:/image/comboBox_btn (3).png);
+background-repeat:no-repeat;
+background-position:center;
+height:5px;
+width:12px;
+}
+QComboBox::drop-down{
+	background-color: rgb(255,255,255);
+}   
+
+QComboBox QAbstractItemView::item {
+    height: 45px;   
+/* 项的高度（设置pComboBox-&gt;setView(new QListView());后，该项才起作用） */
+}
+
+/* QComboBox中的垂直滚动条 */
+QComboBox QAbstractScrollArea QScrollBar:vertical {
+    width: 10px;
+    background-color: #d0d2d4;   /* 空白区域的背景色  灰色green */
+}
+ 
+QComboBox QAbstractScrollArea QScrollBar::handle:vertical {
+    border-radius: 5px;   /* 圆角 */
+    background: rgb(160,160,160);   /* 小方块的背景色深灰lightblue */
+}
+ 
+QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {
+    background: rgb(90, 91, 93);   /* 越过小方块的背景色yellow */
+}
+</string>
+     </property>
+     <property name="editable">
+      <bool>true</bool>
+     </property>
+     <item>
+      <property name="text">
+       <string>挂号员</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>护士管理员</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>药剂师</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>医技师</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>划价收费员</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>门诊医生</string>
+      </property>
+     </item>
+    </widget>
+    <zorder>lineEdit_Username</zorder>
     <zorder>lineEdit_password1R</zorder>
     <zorder>btn_MinR</zorder>
-    <zorder>lineEdit_CheckR</zorder>
     <zorder>label_star3</zorder>
     <zorder>label_picLoveR</zorder>
     <zorder>label_2R</zorder>
@@ -582,11 +657,11 @@ color: rgb(110, 110, 110);</string>
     <zorder>lineEdit_AccountR</zorder>
     <zorder>btn_Change1</zorder>
     <zorder>btn_Change2</zorder>
-    <zorder>btn_getCheckNum</zorder>
     <zorder>label_2</zorder>
     <zorder>label_3</zorder>
     <zorder>label</zorder>
     <zorder>label_4</zorder>
+    <zorder>combo_user</zorder>
    </widget>
    <widget class="QWidget" name="rs">
     <widget class="QPushButton" name="min_rs">
@@ -680,7 +755,7 @@ color: rgb(115, 115, 115);</string>
 color: rgb(229, 141, 62);</string>
      </property>
      <property name="text">
-      <string>注册成功</string>
+      <string>发送成功</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_right">
@@ -737,6 +812,28 @@ border-radius:5px;
       <string>登录</string>
      </property>
     </widget>
+    <widget class="QLabel" name="label_success_2">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>260</y>
+       <width>214</width>
+       <height>54</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size:52px;
+color: rgb(229, 141, 62);</string>
+     </property>
+     <property name="text">
+      <string>邮箱激活</string>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>
@@ -751,7 +848,7 @@ border-radius:5px;
   <tabstop>lineEdit_AccountR</tabstop>
   <tabstop>lineEdit_password1R</tabstop>
   <tabstop>lineEdit_password2R</tabstop>
-  <tabstop>lineEdit_CheckR</tabstop>
+  <tabstop>lineEdit_Username</tabstop>
   <tabstop>btn_RegisterR</tabstop>
   <tabstop>min_rs</tabstop>
   <tabstop>close_rs</tabstop>

@@ -31,18 +31,19 @@ public:
     QGridLayout *gridLayout_2;
     QFrame *frameBorder;
     QGridLayout *gridLayout;
+    QLabel *label;
     QLabel *bluetooth;
     QLabel *labelImage;
     QSpacerItem *zhong;
-    QLabel *label;
     QCheckBox *openPort;
     QLabel *labelTitleName;
-    QComboBox *portName;
     QLabel *headbattery;
+    QComboBox *portName;
     QLabel *handbattery;
     QPushButton *pushButtonMin;
     QPushButton *pushButtonNormalMax;
     QPushButton *pushButtonClose;
+    QLabel *user_name;
 
     void setupUi(QWidget *MainTitleBar)
     {
@@ -60,13 +61,19 @@ public:
         frameBorder->setFrameShadow(QFrame::Raised);
         gridLayout = new QGridLayout(frameBorder);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        label = new QLabel(frameBorder);
+        label->setObjectName(QStringLiteral("label"));
+
+        gridLayout->addWidget(label, 0, 2, 1, 1);
+
         bluetooth = new QLabel(frameBorder);
         bluetooth->setObjectName(QStringLiteral("bluetooth"));
         bluetooth->setMinimumSize(QSize(30, 30));
+        bluetooth->setMaximumSize(QSize(30, 30));
         bluetooth->setPixmap(QPixmap(QString::fromUtf8(":/res/res/image/bluetooth/bluetooth_off.png")));
         bluetooth->setScaledContents(true);
 
-        gridLayout->addWidget(bluetooth, 0, 6, 1, 1);
+        gridLayout->addWidget(bluetooth, 0, 7, 1, 1);
 
         labelImage = new QLabel(frameBorder);
         labelImage->setObjectName(QStringLiteral("labelImage"));
@@ -85,16 +92,11 @@ public:
 
         gridLayout->addItem(zhong, 0, 3, 1, 1);
 
-        label = new QLabel(frameBorder);
-        label->setObjectName(QStringLiteral("label"));
-
-        gridLayout->addWidget(label, 0, 2, 1, 1);
-
         openPort = new QCheckBox(frameBorder);
         openPort->setObjectName(QStringLiteral("openPort"));
         openPort->setStyleSheet(QStringLiteral(""));
 
-        gridLayout->addWidget(openPort, 0, 4, 1, 1);
+        gridLayout->addWidget(openPort, 0, 5, 1, 1);
 
         labelTitleName = new QLabel(frameBorder);
         labelTitleName->setObjectName(QStringLiteral("labelTitleName"));
@@ -109,13 +111,6 @@ public:
 
         gridLayout->addWidget(labelTitleName, 0, 0, 1, 1);
 
-        portName = new QComboBox(frameBorder);
-        portName->setObjectName(QStringLiteral("portName"));
-        portName->setMinimumSize(QSize(0, 20));
-        portName->setStyleSheet(QStringLiteral("background-color: rgb(170, 255, 255);"));
-
-        gridLayout->addWidget(portName, 0, 5, 1, 1);
-
         headbattery = new QLabel(frameBorder);
         headbattery->setObjectName(QStringLiteral("headbattery"));
         headbattery->setMinimumSize(QSize(30, 30));
@@ -123,7 +118,14 @@ public:
         headbattery->setFont(font1);
         headbattery->setScaledContents(true);
 
-        gridLayout->addWidget(headbattery, 0, 7, 1, 1);
+        gridLayout->addWidget(headbattery, 0, 8, 1, 1);
+
+        portName = new QComboBox(frameBorder);
+        portName->setObjectName(QStringLiteral("portName"));
+        portName->setMinimumSize(QSize(0, 20));
+        portName->setStyleSheet(QStringLiteral("background-color: rgb(170, 255, 255);"));
+
+        gridLayout->addWidget(portName, 0, 6, 1, 1);
 
         handbattery = new QLabel(frameBorder);
         handbattery->setObjectName(QStringLiteral("handbattery"));
@@ -132,7 +134,7 @@ public:
         handbattery->setFont(font1);
         handbattery->setScaledContents(true);
 
-        gridLayout->addWidget(handbattery, 0, 8, 1, 1);
+        gridLayout->addWidget(handbattery, 0, 9, 1, 1);
 
         pushButtonMin = new QPushButton(frameBorder);
         pushButtonMin->setObjectName(QStringLiteral("pushButtonMin"));
@@ -143,7 +145,7 @@ public:
         pushButtonMin->setFont(font2);
         pushButtonMin->setStyleSheet(QStringLiteral(""));
 
-        gridLayout->addWidget(pushButtonMin, 0, 9, 1, 1);
+        gridLayout->addWidget(pushButtonMin, 0, 10, 1, 1);
 
         pushButtonNormalMax = new QPushButton(frameBorder);
         pushButtonNormalMax->setObjectName(QStringLiteral("pushButtonNormalMax"));
@@ -152,14 +154,20 @@ public:
         pushButtonNormalMax->setFont(font2);
         pushButtonNormalMax->setStyleSheet(QStringLiteral(""));
 
-        gridLayout->addWidget(pushButtonNormalMax, 0, 10, 1, 1);
+        gridLayout->addWidget(pushButtonNormalMax, 0, 11, 1, 1);
 
         pushButtonClose = new QPushButton(frameBorder);
         pushButtonClose->setObjectName(QStringLiteral("pushButtonClose"));
         pushButtonClose->setMinimumSize(QSize(20, 20));
         pushButtonClose->setMaximumSize(QSize(20, 20));
 
-        gridLayout->addWidget(pushButtonClose, 0, 11, 1, 1);
+        gridLayout->addWidget(pushButtonClose, 0, 12, 1, 1);
+
+        user_name = new QLabel(frameBorder);
+        user_name->setObjectName(QStringLiteral("user_name"));
+        user_name->setStyleSheet(QString::fromUtf8("font: 14pt \"\347\231\276\345\272\246\347\273\274\350\211\272\347\256\200\344\275\223\";"));
+
+        gridLayout->addWidget(user_name, 0, 4, 1, 1);
 
 
         gridLayout_2->addWidget(frameBorder, 0, 0, 1, 1);
@@ -173,9 +181,9 @@ public:
     void retranslateUi(QWidget *MainTitleBar)
     {
         MainTitleBar->setWindowTitle(QApplication::translate("MainTitleBar", "Form", Q_NULLPTR));
+        label->setText(QString());
         bluetooth->setText(QString());
         labelImage->setText(QString());
-        label->setText(QApplication::translate("MainTitleBar", "\344\273\205\344\276\233\345\215\216\345\215\227\345\270\210\350\214\203\345\244\247\345\255\246\350\275\257\344\273\266\345\255\246\351\231\242\344\275\277\347\224\250", Q_NULLPTR));
         openPort->setText(QString());
         labelTitleName->setText(QApplication::translate("MainTitleBar", "SCNU-Smart-Ward", Q_NULLPTR));
         headbattery->setText(QApplication::translate("MainTitleBar", "1", Q_NULLPTR));
@@ -183,6 +191,7 @@ public:
         pushButtonMin->setText(QString());
         pushButtonNormalMax->setText(QString());
         pushButtonClose->setText(QString());
+        user_name->setText(QApplication::translate("MainTitleBar", "TextLabel", Q_NULLPTR));
     } // retranslateUi
 
 };

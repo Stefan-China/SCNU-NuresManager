@@ -1,110 +1,64 @@
-﻿/*****************************************
- * 作者: YYC
- * 日期: 2020-04-26
- * 功能：柱状图
- * ***************************************/
-#include "cylindercontrol.h"
-#include "ui_cylindercontrol.h"
+﻿#include "cylindercontrol.h"
 
 
-// 构造函数
-CylinderControl::CylinderControl(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::CylinderControl)
+CylinderControl::CylinderControl(QFrame *parent) :
+    QFrame(parent)
 {
-    ui->setupUi(this);
+    this->setFixedWidth(FIXED_WIDTH);
+    this->setFixedHeight(FIXED_HEIGHT);
+    this->setObjectName("frameApplication");
 }
 
-// 析构函数
 CylinderControl::~CylinderControl()
 {
-    delete ui;
 }
 
-// 设置进度条值
-void CylinderControl::setSliderValue(float value)
+void CylinderControl::setLabelPixMap(const QPixmap &pixMap)
 {
-    sliderValue = value;
+    if (labelImage != nullptr) {
+        labelImage->setPixmap(pixMap);
+    }
 }
 
-// 设置进度条文本
-void CylinderControl::setSliderText(const QString &value)
+void CylinderControl::setTitleInfo(const QString &title)
 {
-    sliderText = value;
+    if (labelTitle != nullptr) {
+        labelTitle->setText(title);
+    }
 }
 
-// 绘制事件
-void CylinderControl::paintEvent(QPaintEvent *paintEvent)
+void CylinderControl::createFrame(const QPixmap &pixMap, const QString &title, const QString &name)
+{
+    QHBoxLayout *hBoxLayout = new QHBoxLayout(this);
+    labelImage = new QLabel(this);
+    labelImage->setFixedSize(IMAGE_SIZE, IMAGE_SIZE);
+    labelImage->setPixmap(pixMap);
+    labelImage->setScaledContents(true);
+
+
+    labelTitle = new QLabel(this);
+    labelTitle->setText(name);
+    labelTitle->setFixedSize(BUTTON_WIDTH, BUTTON_HEIGHT);
+
+    pushButtonDownLoad = new QPushButton(this);
+    pushButtonDownLoad->setText(tr("详情"));
+    pushButtonDownLoad->setFixedSize(BUTTON_WIDTH, BUTTON_HEIGHT);
+
+
+    connect(pushButtonDownLoad, &QPushButton::clicked,this,[=](){Button(title); });
+    QVBoxLayout *vBoxLayout = new QVBoxLayout();
+    vBoxLayout->addWidget(labelTitle);
+    vBoxLayout->addWidget(pushButtonDownLoad);
+    hBoxLayout->addWidget(labelImage);
+    hBoxLayout->addLayout(vBoxLayout);
+}
+
+void CylinderControl::Button(QString title)
 {
 
-//    //病患身份信息显示
-//    QPixmap photo_image;
-//    photo_image.loadFromData(QByteArray::fromBase64(ui_photo.toLocal8Bit()));
-//    ui->Photo->setPixmap(photo_image);
-//    ui->name->setText(ui_name);
-//    ui->sex->setText(ui_sex);
-//    ui->brith_data->setText(QString(ui_brith));
-//    ui->id_card->setText(ui_id);
-//    ui->address->setText(ui_address);
-//    Q_UNUSED(paintEvent);
-//    QPainter painter(this);
 
-//    // 进度条最大高度
-//    float sliderMaxValue = this->height() * 0.9;
-
-//    //进度条高度
-//    float sliderHigh  = -this->height() * 0.8;
-
-//    //进度条宽度
-//    const int sliderWidth = 60;
-
-//    // 将坐标系的该点变成原点坐标
-//    painter.translate(this->width() * 0.3, sliderMaxValue);
-
-//    // 设置画笔为红色
-//    QPen pen(Qt::white, 2, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin);
-//    painter.setPen(pen);
-
-//    // 画上面直线
-//    painter.drawLine(0, sliderHigh, sliderWidth, sliderHigh);
-
-//    // 画下面直线
-//    painter.drawLine(0, 0, sliderWidth, 0);
-
-//    // 画左边直线
-//    painter.drawLine(0, 0, 0, sliderHigh);
-
-//    // 画右边直线
-//    painter.drawLine(sliderWidth, 0, sliderWidth, sliderHigh);
-
-//    // 画上面直线线
-//    painter.drawLine(0, sliderHigh, sliderWidth, sliderHigh);
-
-//    // 画进度值
-//    painter.drawText(sliderWidth - 40, sliderHigh - 10, QString("%%1").arg(sliderValue));
-//    painter.drawText(5, 30, sliderText);
+    informatiton_patient *m_informatiton_patient = new informatiton_patient(nullptr,title);
+    m_informatiton_patient->show();
 
 
-//    //将矩形填充为白色
-//    QPolygon polyGon;
-//    polyGon<<QPoint(sliderWidth, 0);
-//    polyGon<<QPoint(sliderWidth, sliderHigh);
-//    polyGon<<QPoint(0, sliderHigh);
-//    polyGon<<QPoint(0, 0);
-//    painter.setBrush(Qt::white);
-//    painter.drawConvexPolygon(polyGon);
-
-//    //设置渐变
-//    QLinearGradient linerGradient = QLinearGradient(0, 0, 0, sliderHigh);
-//    linerGradient.setColorAt(0.0, Qt::cyan);
-//    linerGradient.setColorAt(0.3, Qt::green);
-//    linerGradient.setColorAt(0.7, Qt::yellow);
-//    linerGradient.setColorAt(1.0, Qt::red);
-
-//    QBrush brush(linerGradient);
-//    painter.setBrush(brush);
-
-//    painter.drawRect(QRectF(0, 0, sliderWidth, sliderHigh * sliderValue / 100));
-//    painter.end();
 }
-

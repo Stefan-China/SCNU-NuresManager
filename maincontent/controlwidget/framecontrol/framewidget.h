@@ -7,7 +7,7 @@
 #define FRAMEWIDGET_H
 
 #include <QWidget>
-
+#include "introduce_ai.h"
 class FlowLayout;
 
 namespace Ui {
@@ -23,14 +23,24 @@ public:
     ~FrameWidget();
 
 private slots:
-    void on_pushButton_clicked();
-    void on_pushButton_3_clicked();
-    void on_pushButton_2_clicked();
-    void on_pushButton_4_clicked();
-    void on_pushButton_5_clicked();
+
+
+    void on_turn_btn_clicked();
+
+    void on_smart_ask_medicine_btn_clicked();
+
+    void on_smart_hospital_guide_btn_clicked();
+
+    void on_smart_autognosis_btn_clicked();
+
+    void on_smart_qus_ans_btn_clicked();
+
+    void on_smart_pre_visits_btn_clicked();
+
+
 private:
     Ui::FrameWidget *ui;
-    void Medical(int);
+//    void Medical(int);
 
 };
 

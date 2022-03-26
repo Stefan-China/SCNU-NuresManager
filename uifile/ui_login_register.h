@@ -18,8 +18,8 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
-#include "combobox.h"
-#include "mylineedit.h"
+#include <combobox.h>
+#include <mylineedit.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -38,6 +38,7 @@ public:
     QLabel *label_picLove;
     QPushButton *btn_GotoOfficialWeb;
     QLabel *label_2;
+    QPushButton *btn_Change_1;
 
     void setupUi(QWidget *Login_Register)
     {
@@ -239,7 +240,7 @@ public:
 "}"));
         label_picLove = new QLabel(Login_Register);
         label_picLove->setObjectName(QStringLiteral("label_picLove"));
-        label_picLove->setGeometry(QRect(36, 26, 220, 55));
+        label_picLove->setGeometry(QRect(36, 26, 221, 55));
         label_picLove->setMinimumSize(QSize(220, 55));
         label_picLove->setStyleSheet(QStringLiteral("border-image: url(:/image/life_ring2.png);"));
         btn_GotoOfficialWeb = new QPushButton(Login_Register);
@@ -272,6 +273,10 @@ public:
         label_2->setFont(font1);
         label_2->setStyleSheet(QLatin1String("color: rgb(110, 110, 110);\n"
 "font-size:27px;"));
+        btn_Change_1 = new QPushButton(Login_Register);
+        btn_Change_1->setObjectName(QStringLiteral("btn_Change_1"));
+        btn_Change_1->setGeometry(QRect(790, 230, 31, 31));
+        btn_Change_1->setIconSize(QSize(32, 32));
 
         retranslateUi(Login_Register);
 
@@ -292,6 +297,7 @@ public:
         label_picLove->setText(QString());
         btn_GotoOfficialWeb->setText(QApplication::translate("Login_Register", "\345\211\215\345\276\200\345\256\230\347\275\221", Q_NULLPTR));
         label_2->setText(QApplication::translate("Login_Register", "\347\224\250\346\210\267\347\231\273\345\275\225", Q_NULLPTR));
+        btn_Change_1->setText(QString());
     } // retranslateUi
 
 };

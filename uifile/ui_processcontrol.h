@@ -35,7 +35,7 @@ public:
     {
         if (ProcessControl->objectName().isEmpty())
             ProcessControl->setObjectName(QStringLiteral("ProcessControl"));
-        ProcessControl->resize(139, 60);
+        ProcessControl->resize(132, 56);
         verticalLayout = new QVBoxLayout(ProcessControl);
         verticalLayout->setSpacing(0);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
@@ -74,7 +74,7 @@ public:
     {
         ProcessControl->setWindowTitle(QApplication::translate("ProcessControl", "Form", Q_NULLPTR));
         labelImage->setText(QString());
-        labelText->setText(QApplication::translate("ProcessControl", "\350\224\241\346\227\255\345\210\232", Q_NULLPTR));
+        labelText->setText(QApplication::translate("ProcessControl", "QCoolPage", Q_NULLPTR));
     } // retranslateUi
 
 };

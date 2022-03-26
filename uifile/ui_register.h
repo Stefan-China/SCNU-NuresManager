@@ -13,12 +13,13 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QWidget>
-#include "mylineedit.h"
+#include <mylineedit.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -28,7 +29,7 @@ public:
     QStackedWidget *stackedWidget;
     QWidget *rg;
     QPushButton *btn_MinR;
-    MyLineEdit *lineEdit_CheckR;
+    MyLineEdit *lineEdit_Username;
     QLabel *label_star3;
     QLabel *label_picLoveR;
     QLabel *label_2R;
@@ -43,11 +44,11 @@ public:
     MyLineEdit *lineEdit_AccountR;
     QPushButton *btn_Change1;
     QPushButton *btn_Change2;
-    QPushButton *btn_getCheckNum;
     QLabel *label_2;
     QLabel *label_3;
     QLabel *label;
     QLabel *label_4;
+    QComboBox *combo_user;
     QWidget *rs;
     QPushButton *min_rs;
     QPushButton *close_rs;
@@ -55,6 +56,7 @@ public:
     QLabel *label_success;
     QLabel *label_right;
     QPushButton *btn_gotologin;
+    QLabel *label_success_2;
 
     void setupUi(QWidget *Register)
     {
@@ -84,16 +86,17 @@ public:
 "{\n"
 "     border-image:url(:/image/Min_hover.png);\n"
 "}"));
-        lineEdit_CheckR = new MyLineEdit(rg);
-        lineEdit_CheckR->setObjectName(QStringLiteral("lineEdit_CheckR"));
-        lineEdit_CheckR->setGeometry(QRect(518, 312, 317, 45));
-        lineEdit_CheckR->setStyleSheet(QLatin1String("QLineEdit{\n"
+        lineEdit_Username = new MyLineEdit(rg);
+        lineEdit_Username->setObjectName(QStringLiteral("lineEdit_Username"));
+        lineEdit_Username->setGeometry(QRect(518, 312, 317, 45));
+        lineEdit_Username->setMinimumSize(QSize(0, 45));
+        lineEdit_Username->setStyleSheet(QLatin1String("QLineEdit{\n"
 "	font-size:20px;\n"
 "}\n"
-"QLineEdit#lineEdit_CheckR{\n"
+"QLineEdit#lineEdit_Username{\n"
 "border:1px solid rgb(211,211,211);\n"
 "}\n"
-"QLineEdit:hover#lineEdit_CheckR{\n"
+"QLineEdit:hover#lineEdit_Username{\n"
 "border:1px solid rgb(255,170,0);\n"
 "}"));
         label_star3 = new QLabel(rg);
@@ -235,25 +238,6 @@ public:
 "}"));
         btn_Change2->setIconSize(QSize(32, 32));
         btn_Change2->setAutoDefault(false);
-        btn_getCheckNum = new QPushButton(rg);
-        btn_getCheckNum->setObjectName(QStringLiteral("btn_getCheckNum"));
-        btn_getCheckNum->setGeometry(QRect(720, 312, 115, 45));
-        btn_getCheckNum->setStyleSheet(QLatin1String("QPushButton:hover{font-size:16px;\n"
-"color: rgb(255, 245, 237);\n"
-"background-color:#A9E2F3;\n"
-"border-radius:5px;\n"
-"}\n"
-"QPushButton{\n"
-"background-color:#58ACFA;\n"
-"color: rgb(255, 245, 237);\n"
-"border-radius:5px;\n"
-"}\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
-""));
         label_2 = new QLabel(rg);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(408, 177, 100, 45));
@@ -282,10 +266,71 @@ public:
 "font-size:18px;\n"
 "color: rgb(110, 110, 110);"));
         label_4->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        combo_user = new QComboBox(rg);
+        combo_user->setObjectName(QStringLiteral("combo_user"));
+        combo_user->setGeometry(QRect(716, 314, 121, 41));
+        combo_user->setStyleSheet(QString::fromUtf8("QComboBox{\n"
+"	font-size:20px;\n"
+"}\n"
+"QComboBox#combo_user{\n"
+"border:1px solid rgb(211,211,211);\n"
+"height: 50px;\n"
+"}\n"
+"QComboBox:hover#combo_user{\n"
+"border:1px solid rgb(255,170,0);\n"
+"}\n"
+"QComboBox::down-arrow#combo_user{\n"
+"background-image: url(:/image/comboBox_btn (2).png);\n"
+"background-repeat:no-repeat;\n"
+"background-position:center;\n"
+"height:5px;\n"
+"width:12px;\n"
+"}\n"
+"QComboBox::down-arrow:hover#combo_user{\n"
+"background-image: url(:/image/comboBox_btn (1).png);\n"
+"background-repeat:no-repeat;\n"
+"background-position:center;\n"
+"height:5px;\n"
+"width:12px;\n"
+"}\n"
+"QComboBox::down-arrow:checked#combo_user{\n"
+"background-image: url(:/image/comboBox_btn (3).png);\n"
+"background-repeat:no-repeat;\n"
+"background-position:center;\n"
+"height:5px;\n"
+"width:12px;\n"
+"}\n"
+"QComboBox::drop-down{\n"
+"	background-color: rgb(255,255,255);\n"
+"}   \n"
+"\n"
+"QComboBox QAbstractItemView::item {\n"
+"    height: 45px;   \n"
+"/* \351\241\271\347\232\204\351\253\230\345\272\246\357\274\210\350"
+                        "\256\276\347\275\256pComboBox->setView(new QListView());\345\220\216\357\274\214\350\257\245\351\241\271\346\211\215\350\265\267\344\275\234\347\224\250\357\274\211 */\n"
+"}\n"
+"\n"
+"/* QComboBox\344\270\255\347\232\204\345\236\202\347\233\264\346\273\232\345\212\250\346\235\241 */\n"
+"QComboBox QAbstractScrollArea QScrollBar:vertical {\n"
+"    width: 10px;\n"
+"    background-color: #d0d2d4;   /* \347\251\272\347\231\275\345\214\272\345\237\237\347\232\204\350\203\214\346\231\257\350\211\262  \347\201\260\350\211\262green */\n"
+"}\n"
+" \n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical {\n"
+"    border-radius: 5px;   /* \345\234\206\350\247\222 */\n"
+"    background: rgb(160,160,160);   /* \345\260\217\346\226\271\345\235\227\347\232\204\350\203\214\346\231\257\350\211\262\346\267\261\347\201\260lightblue */\n"
+"}\n"
+" \n"
+"QComboBox QAbstractScrollArea QScrollBar::handle:vertical:hover {\n"
+"    background: rgb(90, 91, 93);   /* \350\266\212\350\277\207\345\260\217\346\226\271\345\235\227\347\232\204"
+                        "\350\203\214\346\231\257\350\211\262yellow */\n"
+"}\n"
+""));
+        combo_user->setEditable(true);
         stackedWidget->addWidget(rg);
+        lineEdit_Username->raise();
         lineEdit_password1R->raise();
         btn_MinR->raise();
-        lineEdit_CheckR->raise();
         label_star3->raise();
         label_picLoveR->raise();
         label_2R->raise();
@@ -299,11 +344,11 @@ public:
         lineEdit_AccountR->raise();
         btn_Change1->raise();
         btn_Change2->raise();
-        btn_getCheckNum->raise();
         label_2->raise();
         label_3->raise();
         label->raise();
         label_4->raise();
+        combo_user->raise();
         rs = new QWidget();
         rs->setObjectName(QStringLiteral("rs"));
         min_rs = new QPushButton(rs);
@@ -364,18 +409,24 @@ public:
 "\n"
 "\n"
 ""));
+        label_success_2 = new QLabel(rs);
+        label_success_2->setObjectName(QStringLiteral("label_success_2"));
+        label_success_2->setGeometry(QRect(120, 260, 214, 54));
+        label_success_2->setFont(font1);
+        label_success_2->setStyleSheet(QLatin1String("font-size:52px;\n"
+"color: rgb(229, 141, 62);"));
         stackedWidget->addWidget(rs);
         QWidget::setTabOrder(lineEdit_AccountR, lineEdit_password1R);
         QWidget::setTabOrder(lineEdit_password1R, lineEdit_password2R);
-        QWidget::setTabOrder(lineEdit_password2R, lineEdit_CheckR);
-        QWidget::setTabOrder(lineEdit_CheckR, btn_RegisterR);
+        QWidget::setTabOrder(lineEdit_password2R, lineEdit_Username);
+        QWidget::setTabOrder(lineEdit_Username, btn_RegisterR);
         QWidget::setTabOrder(btn_RegisterR, min_rs);
         QWidget::setTabOrder(min_rs, close_rs);
         QWidget::setTabOrder(close_rs, btn_gotologin);
 
         retranslateUi(Register);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(1);
         btn_Change1->setDefault(false);
         btn_Change2->setDefault(false);
 
@@ -387,7 +438,7 @@ public:
     {
         Register->setWindowTitle(QApplication::translate("Register", "Form", Q_NULLPTR));
         btn_MinR->setText(QString());
-        lineEdit_CheckR->setText(QString());
+        lineEdit_Username->setText(QString());
         label_star3->setText(QApplication::translate("Register", "*", Q_NULLPTR));
         label_picLoveR->setText(QString());
         label_2R->setText(QApplication::translate("Register", "\347\224\250\346\210\267\346\263\250\345\206\214", Q_NULLPTR));
@@ -402,17 +453,26 @@ public:
         lineEdit_AccountR->setText(QString());
         btn_Change1->setText(QString());
         btn_Change2->setText(QString());
-        btn_getCheckNum->setText(QApplication::translate("Register", "\350\216\267\345\217\226\351\252\214\350\257\201\347\240\201", Q_NULLPTR));
         label_2->setText(QApplication::translate("Register", "\350\264\246\345\217\267", Q_NULLPTR));
         label_3->setText(QApplication::translate("Register", "\347\241\256\350\256\244\345\257\206\347\240\201", Q_NULLPTR));
-        label->setText(QApplication::translate("Register", "\346\211\213\346\234\272\351\252\214\350\257\201\347\240\201", Q_NULLPTR));
+        label->setText(QApplication::translate("Register", "\344\272\272\345\221\230\345\247\223\345\220\215", Q_NULLPTR));
         label_4->setText(QApplication::translate("Register", "\345\257\206\347\240\201", Q_NULLPTR));
+        combo_user->clear();
+        combo_user->insertItems(0, QStringList()
+         << QApplication::translate("Register", "\346\214\202\345\217\267\345\221\230", Q_NULLPTR)
+         << QApplication::translate("Register", "\346\212\244\345\243\253\347\256\241\347\220\206\345\221\230", Q_NULLPTR)
+         << QApplication::translate("Register", "\350\215\257\345\211\202\345\270\210", Q_NULLPTR)
+         << QApplication::translate("Register", "\345\214\273\346\212\200\345\270\210", Q_NULLPTR)
+         << QApplication::translate("Register", "\345\210\222\344\273\267\346\224\266\350\264\271\345\221\230", Q_NULLPTR)
+         << QApplication::translate("Register", "\351\227\250\350\257\212\345\214\273\347\224\237", Q_NULLPTR)
+        );
         min_rs->setText(QString());
         close_rs->setText(QString());
         label_gx->setText(QApplication::translate("Register", " \346\201\255\345\226\234\346\202\250", Q_NULLPTR));
-        label_success->setText(QApplication::translate("Register", "\346\263\250\345\206\214\346\210\220\345\212\237", Q_NULLPTR));
+        label_success->setText(QApplication::translate("Register", "\345\217\221\351\200\201\346\210\220\345\212\237", Q_NULLPTR));
         label_right->setText(QString());
         btn_gotologin->setText(QApplication::translate("Register", "\347\231\273\345\275\225", Q_NULLPTR));
+        label_success_2->setText(QApplication::translate("Register", "\351\202\256\347\256\261\346\277\200\346\264\273", Q_NULLPTR));
     } // retranslateUi
 
 };

@@ -70,7 +70,7 @@ public:
     QFrame *frame2;
     QGridLayout *gridLayout_11;
     QLabel *label_4;
-    QPushButton *DoorSwitch;
+    QPushButton *WardDoorSwitch;
     QLabel *door;
     QSpacerItem *verticalSpacer_11;
     QSpacerItem *verticalSpacer_10;
@@ -105,7 +105,7 @@ public:
     QSpacerItem *verticalSpacer_26;
     QLabel *nurse;
     QLabel *label_16;
-    QPushButton *LivingSwitch;
+    QPushButton *NurseSwitch;
     QSpacerItem *verticalSpacer_27;
     QFrame *frame6;
     QGridLayout *gridLayout_9;
@@ -512,13 +512,13 @@ public:
 
         gridLayout_11->addWidget(label_4, 1, 1, 1, 1, Qt::AlignHCenter);
 
-        DoorSwitch = new QPushButton(frame2);
-        DoorSwitch->setObjectName(QStringLiteral("DoorSwitch"));
-        sizePolicy.setHeightForWidth(DoorSwitch->sizePolicy().hasHeightForWidth());
-        DoorSwitch->setSizePolicy(sizePolicy);
-        DoorSwitch->setMinimumSize(QSize(50, 27));
-        DoorSwitch->setMaximumSize(QSize(150, 90));
-        DoorSwitch->setStyleSheet(QString::fromUtf8("QPushButton,.QToolButton{\n"
+        WardDoorSwitch = new QPushButton(frame2);
+        WardDoorSwitch->setObjectName(QStringLiteral("WardDoorSwitch"));
+        sizePolicy.setHeightForWidth(WardDoorSwitch->sizePolicy().hasHeightForWidth());
+        WardDoorSwitch->setSizePolicy(sizePolicy);
+        WardDoorSwitch->setMinimumSize(QSize(50, 27));
+        WardDoorSwitch->setMaximumSize(QSize(150, 90));
+        WardDoorSwitch->setStyleSheet(QString::fromUtf8("QPushButton,.QToolButton{\n"
 "border-style:none;\n"
 "border:1px solid #C0DCF2;\n"
 "color:#386487;\n"
@@ -537,7 +537,7 @@ public:
 "background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\n"
 "}"));
 
-        gridLayout_11->addWidget(DoorSwitch, 3, 1, 1, 1);
+        gridLayout_11->addWidget(WardDoorSwitch, 3, 1, 1, 1);
 
         door = new QLabel(frame2);
         door->setObjectName(QStringLiteral("door"));
@@ -794,13 +794,13 @@ public:
 
         gridLayout_5->addWidget(label_16, 1, 1, 1, 1, Qt::AlignHCenter);
 
-        LivingSwitch = new QPushButton(frame8);
-        LivingSwitch->setObjectName(QStringLiteral("LivingSwitch"));
-        sizePolicy.setHeightForWidth(LivingSwitch->sizePolicy().hasHeightForWidth());
-        LivingSwitch->setSizePolicy(sizePolicy);
-        LivingSwitch->setMinimumSize(QSize(50, 27));
-        LivingSwitch->setMaximumSize(QSize(150, 90));
-        LivingSwitch->setStyleSheet(QString::fromUtf8("QPushButton,.QToolButton{\n"
+        NurseSwitch = new QPushButton(frame8);
+        NurseSwitch->setObjectName(QStringLiteral("NurseSwitch"));
+        sizePolicy.setHeightForWidth(NurseSwitch->sizePolicy().hasHeightForWidth());
+        NurseSwitch->setSizePolicy(sizePolicy);
+        NurseSwitch->setMinimumSize(QSize(50, 27));
+        NurseSwitch->setMaximumSize(QSize(150, 90));
+        NurseSwitch->setStyleSheet(QString::fromUtf8("QPushButton,.QToolButton{\n"
 "border-style:none;\n"
 "border:1px solid #C0DCF2;\n"
 "color:#386487;\n"
@@ -819,7 +819,7 @@ public:
 "background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\n"
 "}"));
 
-        gridLayout_5->addWidget(LivingSwitch, 3, 1, 1, 1);
+        gridLayout_5->addWidget(NurseSwitch, 3, 1, 1, 1);
 
         verticalSpacer_27 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -1252,7 +1252,7 @@ public:
         label_38->setText(QApplication::translate("MoveWidget", "\347\251\272\350\260\203", Q_NULLPTR));
         AirSwitch->setText(QApplication::translate("MoveWidget", "\346\214\211\351\222\256", Q_NULLPTR));
         label_4->setText(QApplication::translate("MoveWidget", "\346\210\277\351\227\250", Q_NULLPTR));
-        DoorSwitch->setText(QApplication::translate("MoveWidget", "\346\214\211\351\222\256", Q_NULLPTR));
+        WardDoorSwitch->setText(QApplication::translate("MoveWidget", "\346\214\211\351\222\256", Q_NULLPTR));
         door->setText(QString());
         sos->setText(QString());
         label_24->setText(QApplication::translate("MoveWidget", "SOS", Q_NULLPTR));
@@ -1265,7 +1265,7 @@ public:
         WaterSwitch->setText(QApplication::translate("MoveWidget", "\346\214\211\351\222\256", Q_NULLPTR));
         nurse->setText(QString());
         label_16->setText(QApplication::translate("MoveWidget", "\346\212\244\345\243\253", Q_NULLPTR));
-        LivingSwitch->setText(QApplication::translate("MoveWidget", "\346\214\211\351\222\256", Q_NULLPTR));
+        NurseSwitch->setText(QApplication::translate("MoveWidget", "\346\214\211\351\222\256", Q_NULLPTR));
         label_12->setText(QApplication::translate("MoveWidget", "\347\224\265\350\247\206", Q_NULLPTR));
         TVSwitch->setText(QApplication::translate("MoveWidget", "\346\214\211\351\222\256", Q_NULLPTR));
         tv->setText(QString());

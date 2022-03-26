@@ -76,7 +76,7 @@ color: rgb(255, 170, 0);</string>
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QPushButton" name="LightSwitch">
+       <widget class="QPushButton" name="LigthSwitch">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -2136,8 +2136,8 @@ background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 
   </layout>
  </widget>
  <resources>
-  <include location="../../../res.qrc"/>
   <include location="../../../map.qrc"/>
+  <include location="../../../res.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -9,7 +9,7 @@
 
 #include <QWidget>
 #include "titlebar/titlebar.h"
-#include "maincontent/controlwidget/progresscontrol/progresswidget.h"
+#include "maincontent/controlwidget/progresscontrol/information_handband.h"
 #include "maincontent/controlwidget/movecontrol/movewidget.h"
 #include "maincontent/controlwidget/slidercontrol/sliderwidget.h"
 #include <QSerialPort>
@@ -17,6 +17,8 @@
 #include <QDesktopServices>
 #include <QList>
 #include <QMessageBox>
+#include "connecttipform.h";
+
 namespace Ui {
 class MainTitleBar;
 }
@@ -28,17 +30,19 @@ class MainTitleBar : public TitleBar
 public:
     explicit MainTitleBar(QWidget *parent = 0);
     ~MainTitleBar();
+
+
 private slots:
     void on_pushButtonClose_clicked();
     void on_pushButtonMin_clicked();
     void on_pushButtonNormalMax_clicked();
-
 
 public slots:
     void button(short int i_data);  //发送蓝牙指令
     void slot_mainwindow_battery(int e);    //电量变化后设置标题栏的槽函数
     void slot_mainwindow_handbattery(double e);    //电量变化后设置标题栏的槽函数
     void recvMsg();
+
 
 
 private:

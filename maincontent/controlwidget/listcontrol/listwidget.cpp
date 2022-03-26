@@ -14,7 +14,7 @@ ListWidget::ListWidget(QWidget *parent) :
     ui(new Ui::ListWidget)
 {
     ui->setupUi(this);
-    qDebug()<<"ListWidget";
+    qDebug()<<"ListWidget——百度地图";
     //Baidu Map 1.31
     JSBridge = new bridge(this);
     QWebChannel *channel = new QWebChannel(this);
@@ -37,7 +37,7 @@ ListWidget::~ListWidget()
 void ListWidget::initValue()
 {
      QTimer *myTimer = new QTimer(this);
-    myTimer->setInterval(1000);
+    myTimer->setInterval(1);
     myTimer->start();
 
    connect(myTimer, SIGNAL(timeout()), this, SLOT(updateProgress()));

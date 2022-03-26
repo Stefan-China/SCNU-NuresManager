@@ -31,14 +31,15 @@ public:
     QGridLayout *gridLayout_3;
     QSpacerItem *horizontalSpacer;
     QGridLayout *gridLayout_8;
-    QSpacerItem *verticalSpacer_13;
-    QLabel *label_7;
-    QSpacerItem *verticalSpacer_15;
+    QSpacerItem *verticalSpacer_3;
     QPushButton *LightSwitch_3;
     QSpacerItem *verticalSpacer_14;
     QLabel *label_8;
-    QSpacerItem *verticalSpacer_3;
+    QSpacerItem *verticalSpacer_15;
     QPushButton *pushButton;
+    QLabel *label_7;
+    QSpacerItem *verticalSpacer_13;
+    QLabel *battery_3;
     QSpacerItem *horizontalSpacer_5;
     QLabel *air;
     QSpacerItem *horizontalSpacer_11;
@@ -46,14 +47,15 @@ public:
     QGridLayout *gridLayout_4;
     QLabel *tv;
     QGridLayout *gridLayout_9;
-    QSpacerItem *verticalSpacer_17;
     QLabel *label_9;
-    QSpacerItem *verticalSpacer_16;
-    QSpacerItem *verticalSpacer_18;
+    QSpacerItem *verticalSpacer_17;
+    QLabel *label_10;
     QPushButton *LightSwitch_4;
     QSpacerItem *verticalSpacer_4;
-    QLabel *label_10;
+    QSpacerItem *verticalSpacer_18;
+    QSpacerItem *verticalSpacer_16;
     QPushButton *pushButton_2;
+    QLabel *battery_4;
     QSpacerItem *horizontalSpacer_4;
     QSpacerItem *horizontalSpacer_6;
     QSpacerItem *horizontalSpacer_12;
@@ -61,14 +63,15 @@ public:
     QGridLayout *gridLayout_2;
     QSpacerItem *horizontalSpacer_3;
     QGridLayout *gridLayout_7;
-    QLabel *label_4;
     QSpacerItem *verticalSpacer_10;
     QLabel *label_6;
+    QLabel *label_4;
     QSpacerItem *verticalSpacer_11;
-    QPushButton *SY_Second;
-    QSpacerItem *verticalSpacer_2;
     QSpacerItem *verticalSpacer_12;
     QPushButton *pushButton_4;
+    QSpacerItem *verticalSpacer_2;
+    QPushButton *SY_Second;
+    QLabel *battery_2;
     QLabel *door;
     QSpacerItem *horizontalSpacer_8;
     QSpacerItem *horizontalSpacer_10;
@@ -77,14 +80,15 @@ public:
     QLabel *SY_First;
     QSpacerItem *horizontalSpacer_7;
     QGridLayout *gridLayout_5;
-    QLabel *label_3;
-    QSpacerItem *verticalSpacer_9;
-    QSpacerItem *verticalSpacer_8;
-    QPushButton *LightSwitch;
-    QSpacerItem *verticalSpacer_7;
-    QSpacerItem *verticalSpacer;
+    QPushButton *open;
     QLabel *label_5;
-    QPushButton *pushButton_3;
+    QSpacerItem *verticalSpacer;
+    QLabel *label_3;
+    QSpacerItem *verticalSpacer_8;
+    QSpacerItem *verticalSpacer_9;
+    QPushButton *lock;
+    QSpacerItem *verticalSpacer_7;
+    QLabel *battery;
     QSpacerItem *horizontalSpacer_2;
     QSpacerItem *horizontalSpacer_9;
 
@@ -110,22 +114,9 @@ public:
 
         gridLayout_8 = new QGridLayout();
         gridLayout_8->setObjectName(QStringLiteral("gridLayout_8"));
-        verticalSpacer_13 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_8->addItem(verticalSpacer_13, 0, 0, 1, 1);
-
-        label_7 = new QLabel(frame5);
-        label_7->setObjectName(QStringLiteral("label_7"));
-        label_7->setMinimumSize(QSize(0, 30));
-        label_7->setStyleSheet(QLatin1String("\n"
-"font: 14pt \"Times New Roman\";\n"
-"color: rgb(30, 144, 225);"));
-
-        gridLayout_8->addWidget(label_7, 1, 0, 1, 1, Qt::AlignHCenter);
-
-        verticalSpacer_15 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_8->addItem(verticalSpacer_15, 7, 0, 1, 1);
+        gridLayout_8->addItem(verticalSpacer_3, 5, 0, 1, 1);
 
         LightSwitch_3 = new QPushButton(frame5);
         LightSwitch_3->setObjectName(QStringLiteral("LightSwitch_3"));
@@ -154,7 +145,7 @@ public:
 "background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\n"
 "}"));
 
-        gridLayout_8->addWidget(LightSwitch_3, 6, 0, 1, 1);
+        gridLayout_8->addWidget(LightSwitch_3, 7, 0, 1, 1);
 
         verticalSpacer_14 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -166,11 +157,11 @@ public:
         label_8->setStyleSheet(QLatin1String("font: 14pt \"Times New Roman\";\n"
 "color: rgb(30, 144, 225);"));
 
-        gridLayout_8->addWidget(label_8, 3, 0, 1, 1, Qt::AlignHCenter);
+        gridLayout_8->addWidget(label_8, 4, 0, 1, 1, Qt::AlignHCenter);
 
-        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_15 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_8->addItem(verticalSpacer_3, 4, 0, 1, 1);
+        gridLayout_8->addItem(verticalSpacer_15, 8, 0, 1, 1);
 
         pushButton = new QPushButton(frame5);
         pushButton->setObjectName(QStringLiteral("pushButton"));
@@ -192,7 +183,25 @@ public:
 "background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\n"
 "}"));
 
-        gridLayout_8->addWidget(pushButton, 5, 0, 1, 1);
+        gridLayout_8->addWidget(pushButton, 6, 0, 1, 1);
+
+        label_7 = new QLabel(frame5);
+        label_7->setObjectName(QStringLiteral("label_7"));
+        label_7->setMinimumSize(QSize(0, 30));
+        label_7->setStyleSheet(QLatin1String("\n"
+"font: 14pt \"Times New Roman\";\n"
+"color: rgb(30, 144, 225);"));
+
+        gridLayout_8->addWidget(label_7, 1, 0, 1, 1, Qt::AlignHCenter);
+
+        verticalSpacer_13 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_8->addItem(verticalSpacer_13, 0, 0, 1, 1);
+
+        battery_3 = new QLabel(frame5);
+        battery_3->setObjectName(QStringLiteral("battery_3"));
+
+        gridLayout_8->addWidget(battery_3, 3, 0, 1, 1);
 
 
         gridLayout_3->addLayout(gridLayout_8, 0, 3, 1, 1);
@@ -206,7 +215,7 @@ public:
         air->setMinimumSize(QSize(100, 120));
         air->setMaximumSize(QSize(100, 120));
         air->setStyleSheet(QStringLiteral(""));
-        air->setPixmap(QPixmap(QString::fromUtf8(":/res/res/image/transfuse/transfuse_full.png")));
+        air->setPixmap(QPixmap(QString::fromUtf8(":/res/res/image/transfuse/no_connect.png")));
         air->setScaledContents(true);
 
         gridLayout_3->addWidget(air, 0, 1, 1, 1);
@@ -231,17 +240,13 @@ public:
         tv->setMinimumSize(QSize(100, 120));
         tv->setMaximumSize(QSize(100, 120));
         tv->setStyleSheet(QStringLiteral(""));
-        tv->setPixmap(QPixmap(QString::fromUtf8(":/res/res/image/transfuse/transfuse_full.png")));
+        tv->setPixmap(QPixmap(QString::fromUtf8(":/res/res/image/transfuse/no_connect.png")));
         tv->setScaledContents(true);
 
         gridLayout_4->addWidget(tv, 0, 1, 1, 1);
 
         gridLayout_9 = new QGridLayout();
         gridLayout_9->setObjectName(QStringLiteral("gridLayout_9"));
-        verticalSpacer_17 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_9->addItem(verticalSpacer_17, 2, 0, 1, 1);
-
         label_9 = new QLabel(frame6);
         label_9->setObjectName(QStringLiteral("label_9"));
         label_9->setMinimumSize(QSize(0, 30));
@@ -250,13 +255,17 @@ public:
 
         gridLayout_9->addWidget(label_9, 1, 0, 1, 1, Qt::AlignHCenter);
 
-        verticalSpacer_16 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_17 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_9->addItem(verticalSpacer_16, 0, 0, 1, 1);
+        gridLayout_9->addItem(verticalSpacer_17, 2, 0, 1, 1);
 
-        verticalSpacer_18 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        label_10 = new QLabel(frame6);
+        label_10->setObjectName(QStringLiteral("label_10"));
+        label_10->setMinimumSize(QSize(0, 0));
+        label_10->setStyleSheet(QLatin1String("font: 14pt \"Times New Roman\";\n"
+"color: rgb(30, 144, 225);"));
 
-        gridLayout_9->addItem(verticalSpacer_18, 7, 0, 1, 1);
+        gridLayout_9->addWidget(label_10, 4, 0, 1, 1, Qt::AlignHCenter);
 
         LightSwitch_4 = new QPushButton(frame6);
         LightSwitch_4->setObjectName(QStringLiteral("LightSwitch_4"));
@@ -282,19 +291,19 @@ public:
 "background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\n"
 "}"));
 
-        gridLayout_9->addWidget(LightSwitch_4, 6, 0, 1, 1);
+        gridLayout_9->addWidget(LightSwitch_4, 7, 0, 1, 1);
 
         verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_9->addItem(verticalSpacer_4, 4, 0, 1, 1);
+        gridLayout_9->addItem(verticalSpacer_4, 5, 0, 1, 1);
 
-        label_10 = new QLabel(frame6);
-        label_10->setObjectName(QStringLiteral("label_10"));
-        label_10->setMinimumSize(QSize(0, 0));
-        label_10->setStyleSheet(QLatin1String("font: 14pt \"Times New Roman\";\n"
-"color: rgb(30, 144, 225);"));
+        verticalSpacer_18 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_9->addWidget(label_10, 3, 0, 1, 1, Qt::AlignHCenter);
+        gridLayout_9->addItem(verticalSpacer_18, 8, 0, 1, 1);
+
+        verticalSpacer_16 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_9->addItem(verticalSpacer_16, 0, 0, 1, 1);
 
         pushButton_2 = new QPushButton(frame6);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
@@ -316,7 +325,12 @@ public:
 "background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\n"
 "}"));
 
-        gridLayout_9->addWidget(pushButton_2, 5, 0, 1, 1);
+        gridLayout_9->addWidget(pushButton_2, 6, 0, 1, 1);
+
+        battery_4 = new QLabel(frame6);
+        battery_4->setObjectName(QStringLiteral("battery_4"));
+
+        gridLayout_9->addWidget(battery_4, 3, 0, 1, 1);
 
 
         gridLayout_4->addLayout(gridLayout_9, 0, 3, 1, 1);
@@ -350,14 +364,6 @@ public:
 
         gridLayout_7 = new QGridLayout();
         gridLayout_7->setObjectName(QStringLiteral("gridLayout_7"));
-        label_4 = new QLabel(frame2);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setMinimumSize(QSize(0, 30));
-        label_4->setStyleSheet(QLatin1String("font: 14pt \"Times New Roman\";\n"
-"color: rgb(30, 144, 225);"));
-
-        gridLayout_7->addWidget(label_4, 1, 0, 1, 1, Qt::AlignHCenter);
-
         verticalSpacer_10 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         gridLayout_7->addItem(verticalSpacer_10, 0, 0, 1, 1);
@@ -369,11 +375,49 @@ public:
 "font: 14pt \"Times New Roman\";\n"
 "color: rgb(30, 144, 225);"));
 
-        gridLayout_7->addWidget(label_6, 3, 0, 1, 1, Qt::AlignHCenter|Qt::AlignVCenter);
+        gridLayout_7->addWidget(label_6, 4, 0, 1, 1, Qt::AlignHCenter|Qt::AlignVCenter);
+
+        label_4 = new QLabel(frame2);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setMinimumSize(QSize(0, 30));
+        label_4->setStyleSheet(QLatin1String("font: 14pt \"Times New Roman\";\n"
+"color: rgb(30, 144, 225);"));
+
+        gridLayout_7->addWidget(label_4, 1, 0, 1, 1, Qt::AlignHCenter);
 
         verticalSpacer_11 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         gridLayout_7->addItem(verticalSpacer_11, 2, 0, 1, 1);
+
+        verticalSpacer_12 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_7->addItem(verticalSpacer_12, 8, 0, 1, 1);
+
+        pushButton_4 = new QPushButton(frame2);
+        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
+        pushButton_4->setStyleSheet(QLatin1String("QPushButton,.QToolButton{\n"
+"border-style:none;\n"
+"border:1px solid #C0DCF2;\n"
+"color:#386487;\n"
+"padding:5px;\n"
+"min-height:15px;\n"
+"border-radius:5px;\n"
+"background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\n"
+"}\n"
+"\n"
+"QPushButton:hover,.QToolButton:hover{\n"
+"background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #F2F9FF,stop:1 #DAEFFF);\n"
+"}\n"
+"\n"
+"QPushButton:pressed,.QToolButton:pressed{\n"
+"background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\n"
+"}"));
+
+        gridLayout_7->addWidget(pushButton_4, 6, 0, 1, 1);
+
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_7->addItem(verticalSpacer_2, 5, 0, 1, 1);
 
         SY_Second = new QPushButton(frame2);
         SY_Second->setObjectName(QStringLiteral("SY_Second"));
@@ -399,37 +443,12 @@ public:
 "background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\n"
 "}"));
 
-        gridLayout_7->addWidget(SY_Second, 6, 0, 1, 1);
+        gridLayout_7->addWidget(SY_Second, 7, 0, 1, 1);
 
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        battery_2 = new QLabel(frame2);
+        battery_2->setObjectName(QStringLiteral("battery_2"));
 
-        gridLayout_7->addItem(verticalSpacer_2, 4, 0, 1, 1);
-
-        verticalSpacer_12 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_7->addItem(verticalSpacer_12, 7, 0, 1, 1);
-
-        pushButton_4 = new QPushButton(frame2);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        pushButton_4->setStyleSheet(QLatin1String("QPushButton,.QToolButton{\n"
-"border-style:none;\n"
-"border:1px solid #C0DCF2;\n"
-"color:#386487;\n"
-"padding:5px;\n"
-"min-height:15px;\n"
-"border-radius:5px;\n"
-"background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\n"
-"}\n"
-"\n"
-"QPushButton:hover,.QToolButton:hover{\n"
-"background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #F2F9FF,stop:1 #DAEFFF);\n"
-"}\n"
-"\n"
-"QPushButton:pressed,.QToolButton:pressed{\n"
-"background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\n"
-"}"));
-
-        gridLayout_7->addWidget(pushButton_4, 5, 0, 1, 1);
+        gridLayout_7->addWidget(battery_2, 3, 0, 1, 1);
 
 
         gridLayout_2->addLayout(gridLayout_7, 0, 3, 1, 1);
@@ -439,7 +458,7 @@ public:
         door->setMinimumSize(QSize(100, 120));
         door->setMaximumSize(QSize(100, 120));
         door->setStyleSheet(QStringLiteral(""));
-        door->setPixmap(QPixmap(QString::fromUtf8(":/res/res/image/transfuse/transfuse_full.png")));
+        door->setPixmap(QPixmap(QString::fromUtf8(":/res/res/image/transfuse/no_connect.png")));
         door->setScaledContents(true);
 
         gridLayout_2->addWidget(door, 0, 1, 1, 1);
@@ -479,6 +498,41 @@ public:
 
         gridLayout_5 = new QGridLayout();
         gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
+        open = new QPushButton(frame1);
+        open->setObjectName(QStringLiteral("open"));
+        open->setStyleSheet(QLatin1String("QPushButton,.QToolButton{\n"
+"border-style:none;\n"
+"border:1px solid #C0DCF2;\n"
+"color:#386487;\n"
+"padding:5px;\n"
+"min-height:15px;\n"
+"border-radius:5px;\n"
+"background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\n"
+"}\n"
+"\n"
+"QPushButton:hover,.QToolButton:hover{\n"
+"background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #F2F9FF,stop:1 #DAEFFF);\n"
+"}\n"
+"\n"
+"QPushButton:pressed,.QToolButton:pressed{\n"
+"background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\n"
+"}"));
+
+        gridLayout_5->addWidget(open, 6, 0, 1, 1);
+
+        label_5 = new QLabel(frame1);
+        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setMinimumSize(QSize(0, 0));
+        label_5->setStyleSheet(QLatin1String("font: 14pt \"Times New Roman\";\n"
+"color: rgb(30, 144, 225);\n"
+""));
+
+        gridLayout_5->addWidget(label_5, 4, 0, 1, 1, Qt::AlignHCenter);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_5->addItem(verticalSpacer, 5, 0, 1, 1);
+
         label_3 = new QLabel(frame1);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setMinimumSize(QSize(0, 30));
@@ -488,21 +542,21 @@ public:
 
         gridLayout_5->addWidget(label_3, 1, 0, 1, 1, Qt::AlignHCenter);
 
-        verticalSpacer_9 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_5->addItem(verticalSpacer_9, 0, 0, 1, 1);
-
         verticalSpacer_8 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         gridLayout_5->addItem(verticalSpacer_8, 2, 0, 1, 1);
 
-        LightSwitch = new QPushButton(frame1);
-        LightSwitch->setObjectName(QStringLiteral("LightSwitch"));
-        sizePolicy.setHeightForWidth(LightSwitch->sizePolicy().hasHeightForWidth());
-        LightSwitch->setSizePolicy(sizePolicy);
-        LightSwitch->setMinimumSize(QSize(100, 27));
-        LightSwitch->setMaximumSize(QSize(300, 90));
-        LightSwitch->setStyleSheet(QLatin1String("QPushButton,.QToolButton{\n"
+        verticalSpacer_9 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_5->addItem(verticalSpacer_9, 0, 0, 1, 1);
+
+        lock = new QPushButton(frame1);
+        lock->setObjectName(QStringLiteral("lock"));
+        sizePolicy.setHeightForWidth(lock->sizePolicy().hasHeightForWidth());
+        lock->setSizePolicy(sizePolicy);
+        lock->setMinimumSize(QSize(100, 27));
+        lock->setMaximumSize(QSize(300, 90));
+        lock->setStyleSheet(QLatin1String("QPushButton,.QToolButton{\n"
 "border-style:none;\n"
 "border:1px solid #C0DCF2;\n"
 "color:#386487;\n"
@@ -520,46 +574,16 @@ public:
 "background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\n"
 "}"));
 
-        gridLayout_5->addWidget(LightSwitch, 6, 0, 1, 1);
+        gridLayout_5->addWidget(lock, 7, 0, 1, 1);
 
         verticalSpacer_7 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_5->addItem(verticalSpacer_7, 7, 0, 1, 1);
+        gridLayout_5->addItem(verticalSpacer_7, 8, 0, 1, 1);
 
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        battery = new QLabel(frame1);
+        battery->setObjectName(QStringLiteral("battery"));
 
-        gridLayout_5->addItem(verticalSpacer, 4, 0, 1, 1);
-
-        label_5 = new QLabel(frame1);
-        label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setMinimumSize(QSize(0, 0));
-        label_5->setStyleSheet(QLatin1String("font: 14pt \"Times New Roman\";\n"
-"color: rgb(30, 144, 225);\n"
-""));
-
-        gridLayout_5->addWidget(label_5, 3, 0, 1, 1, Qt::AlignHCenter);
-
-        pushButton_3 = new QPushButton(frame1);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setStyleSheet(QLatin1String("QPushButton,.QToolButton{\n"
-"border-style:none;\n"
-"border:1px solid #C0DCF2;\n"
-"color:#386487;\n"
-"padding:5px;\n"
-"min-height:15px;\n"
-"border-radius:5px;\n"
-"background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\n"
-"}\n"
-"\n"
-"QPushButton:hover,.QToolButton:hover{\n"
-"background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #F2F9FF,stop:1 #DAEFFF);\n"
-"}\n"
-"\n"
-"QPushButton:pressed,.QToolButton:pressed{\n"
-"background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #DEF0FE,stop:1 #C0DEF6);\n"
-"}"));
-
-        gridLayout_5->addWidget(pushButton_3, 5, 0, 1, 1);
+        gridLayout_5->addWidget(battery, 3, 0, 1, 1);
 
 
         gridLayout_6->addLayout(gridLayout_5, 0, 3, 1, 1);
@@ -584,26 +608,30 @@ public:
     void retranslateUi(QWidget *TableWidget)
     {
         TableWidget->setWindowTitle(QApplication::translate("TableWidget", "Form", Q_NULLPTR));
-        label_7->setText(QApplication::translate("TableWidget", "SCNU-Ward", Q_NULLPTR));
         LightSwitch_3->setText(QApplication::translate("TableWidget", "\345\205\263\351\227\255", Q_NULLPTR));
         label_8->setText(QApplication::translate("TableWidget", "Patient003", Q_NULLPTR));
         pushButton->setText(QApplication::translate("TableWidget", "\345\274\200\345\220\257", Q_NULLPTR));
+        label_7->setText(QApplication::translate("TableWidget", "SCNU-Ward", Q_NULLPTR));
+        battery_3->setText(QString());
         air->setText(QString());
         tv->setText(QString());
         label_9->setText(QApplication::translate("TableWidget", "SCNU-Ward", Q_NULLPTR));
-        LightSwitch_4->setText(QApplication::translate("TableWidget", "\345\205\263\351\227\255", Q_NULLPTR));
         label_10->setText(QApplication::translate("TableWidget", "Patient004", Q_NULLPTR));
+        LightSwitch_4->setText(QApplication::translate("TableWidget", "\345\205\263\351\227\255", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("TableWidget", "\345\274\200\345\220\257", Q_NULLPTR));
-        label_4->setText(QApplication::translate("TableWidget", "SCNU-Ward", Q_NULLPTR));
+        battery_4->setText(QString());
         label_6->setText(QApplication::translate("TableWidget", "Patient002", Q_NULLPTR));
-        SY_Second->setText(QApplication::translate("TableWidget", "\345\205\263\351\227\255", Q_NULLPTR));
+        label_4->setText(QApplication::translate("TableWidget", "SCNU-Ward", Q_NULLPTR));
         pushButton_4->setText(QApplication::translate("TableWidget", "\345\274\200\345\220\257", Q_NULLPTR));
+        SY_Second->setText(QApplication::translate("TableWidget", "\345\205\263\351\227\255", Q_NULLPTR));
+        battery_2->setText(QString());
         door->setText(QString());
         SY_First->setText(QString());
-        label_3->setText(QApplication::translate("TableWidget", "SCNU-Ward", Q_NULLPTR));
-        LightSwitch->setText(QApplication::translate("TableWidget", "\345\205\263\351\227\255", Q_NULLPTR));
+        open->setText(QApplication::translate("TableWidget", "\345\274\200\345\220\257", Q_NULLPTR));
         label_5->setText(QApplication::translate("TableWidget", "Patient001", Q_NULLPTR));
-        pushButton_3->setText(QApplication::translate("TableWidget", "\345\274\200\345\220\257", Q_NULLPTR));
+        label_3->setText(QApplication::translate("TableWidget", "SCNU-Ward", Q_NULLPTR));
+        lock->setText(QApplication::translate("TableWidget", "\345\205\263\351\227\255", Q_NULLPTR));
+        battery->setText(QString());
     } // retranslateUi
 
 };

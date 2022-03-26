@@ -17,7 +17,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
-#include "mylineedit.h"
+#include <mylineedit.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -28,15 +28,14 @@ public:
     QLabel *label_picLoveR;
     QPushButton *btn_SubmitF1;
     QPushButton *btn_CloseR;
-    MyLineEdit *lineEdit_CheckRF1;
-    MyLineEdit *lineEdit_PhoneF1;
+    MyLineEdit *lineEdit_oldpassword;
+    MyLineEdit *lineEdit_Email;
     QLabel *label_2R;
     QLabel *label_errRF1;
-    MyLineEdit *lineEdit_Password1;
-    MyLineEdit *lineEdit_Password2;
+    MyLineEdit *lineEdit_Password_new;
+    MyLineEdit *lineEdit_Password_check;
     QPushButton *btn_Change1;
     QPushButton *btn_Change2;
-    QPushButton *btn_getCheckNumF1;
     QLabel *label_2;
     QLabel *label_3;
     QLabel *label;
@@ -104,28 +103,28 @@ public:
 "{\n"
 "      border-image: url(:/image/Close_hover.png);\n"
 "}"));
-        lineEdit_CheckRF1 = new MyLineEdit(ForgetPassword_1);
-        lineEdit_CheckRF1->setObjectName(QStringLiteral("lineEdit_CheckRF1"));
-        lineEdit_CheckRF1->setGeometry(QRect(518, 312, 317, 45));
-        lineEdit_CheckRF1->setStyleSheet(QLatin1String("QLineEdit{\n"
+        lineEdit_oldpassword = new MyLineEdit(ForgetPassword_1);
+        lineEdit_oldpassword->setObjectName(QStringLiteral("lineEdit_oldpassword"));
+        lineEdit_oldpassword->setGeometry(QRect(520, 310, 317, 45));
+        lineEdit_oldpassword->setStyleSheet(QLatin1String("QLineEdit{\n"
 "	font-size:20px;\n"
 "}\n"
-"QLineEdit#lineEdit_CheckRF1{\n"
+"QLineEdit#lineEdit_oldpassword{\n"
 "border:1px solid rgb(211,211,211);\n"
 "}\n"
-"QLineEdit:hover#lineEdit_CheckRF1{\n"
+"QLineEdit:hover#lineEdit_oldpassword{\n"
 "border:1px solid rgb(255,170,0);\n"
 "}"));
-        lineEdit_PhoneF1 = new MyLineEdit(ForgetPassword_1);
-        lineEdit_PhoneF1->setObjectName(QStringLiteral("lineEdit_PhoneF1"));
-        lineEdit_PhoneF1->setGeometry(QRect(518, 177, 317, 45));
-        lineEdit_PhoneF1->setStyleSheet(QLatin1String("QLineEdit{\n"
+        lineEdit_Email = new MyLineEdit(ForgetPassword_1);
+        lineEdit_Email->setObjectName(QStringLiteral("lineEdit_Email"));
+        lineEdit_Email->setGeometry(QRect(520, 190, 317, 45));
+        lineEdit_Email->setStyleSheet(QLatin1String("QLineEdit{\n"
 "	font-size:20px;\n"
 "}\n"
-"QLineEdit#lineEdit_PhoneF1{\n"
+"QLineEdit#lineEdit_Email{\n"
 "border:1px solid rgb(211,211,211);\n"
 "}\n"
-"QLineEdit:hover#lineEdit_PhoneF1{\n"
+"QLineEdit:hover#lineEdit_Email{\n"
 "border:1px solid rgb(255,170,0);\n"
 "}"));
         label_2R = new QLabel(ForgetPassword_1);
@@ -140,57 +139,38 @@ public:
         label_errRF1->setFont(font);
         label_errRF1->setStyleSheet(QLatin1String("font-size:16px;\n"
 "color: rgb(251, 173, 88);"));
-        lineEdit_Password1 = new MyLineEdit(ForgetPassword_1);
-        lineEdit_Password1->setObjectName(QStringLiteral("lineEdit_Password1"));
-        lineEdit_Password1->setGeometry(QRect(518, 222, 317, 45));
-        lineEdit_Password1->setStyleSheet(QLatin1String("QLineEdit{\n"
+        lineEdit_Password_new = new MyLineEdit(ForgetPassword_1);
+        lineEdit_Password_new->setObjectName(QStringLiteral("lineEdit_Password_new"));
+        lineEdit_Password_new->setGeometry(QRect(520, 230, 317, 45));
+        lineEdit_Password_new->setStyleSheet(QLatin1String("QLineEdit{\n"
 "	font-size:20px;\n"
 "}\n"
-"QLineEdit#lineEdit_Password1{\n"
+"QLineEdit#lineEdit_Password_new{\n"
 "border:1px solid rgb(211,211,211);\n"
 "}\n"
-"QLineEdit:hover#lineEdit_Password1{\n"
+"QLineEdit:hover#lineEdit_Password_new{\n"
 "border:1px solid rgb(255,170,0);\n"
 "}"));
-        lineEdit_Password2 = new MyLineEdit(ForgetPassword_1);
-        lineEdit_Password2->setObjectName(QStringLiteral("lineEdit_Password2"));
-        lineEdit_Password2->setGeometry(QRect(518, 267, 317, 45));
-        lineEdit_Password2->setStyleSheet(QLatin1String("QLineEdit{\n"
+        lineEdit_Password_check = new MyLineEdit(ForgetPassword_1);
+        lineEdit_Password_check->setObjectName(QStringLiteral("lineEdit_Password_check"));
+        lineEdit_Password_check->setGeometry(QRect(520, 270, 317, 45));
+        lineEdit_Password_check->setStyleSheet(QLatin1String("QLineEdit{\n"
 "	font-size:20px;\n"
 "}\n"
-"QLineEdit#lineEdit_Password2{\n"
+"QLineEdit#lineEdit_Password_check{\n"
 "border:1px solid rgb(211,211,211);\n"
 "}\n"
-"QLineEdit:hover#lineEdit_Password2{\n"
+"QLineEdit:hover#lineEdit_Password_check{\n"
 "border:1px solid rgb(255,170,0);\n"
 "}"));
         btn_Change1 = new QPushButton(ForgetPassword_1);
         btn_Change1->setObjectName(QStringLiteral("btn_Change1"));
-        btn_Change1->setGeometry(QRect(794, 224, 40, 41));
+        btn_Change1->setGeometry(QRect(790, 230, 40, 41));
         btn_Change1->setIconSize(QSize(32, 32));
         btn_Change2 = new QPushButton(ForgetPassword_1);
         btn_Change2->setObjectName(QStringLiteral("btn_Change2"));
-        btn_Change2->setGeometry(QRect(794, 269, 40, 41));
+        btn_Change2->setGeometry(QRect(790, 270, 40, 41));
         btn_Change2->setIconSize(QSize(32, 32));
-        btn_getCheckNumF1 = new QPushButton(ForgetPassword_1);
-        btn_getCheckNumF1->setObjectName(QStringLiteral("btn_getCheckNumF1"));
-        btn_getCheckNumF1->setGeometry(QRect(720, 312, 115, 45));
-        btn_getCheckNumF1->setStyleSheet(QLatin1String("QPushButton:hover{font-size:16px;\n"
-"color: rgb(255, 245, 237);\n"
-"background-color:#A9E2F3;\n"
-"border-radius:5px;\n"
-"}\n"
-"QPushButton{\n"
-"background-color:#58ACFA;\n"
-"color: rgb(255, 245, 237);\n"
-"border-radius:5px;\n"
-"}\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
-""));
         label_2 = new QLabel(ForgetPassword_1);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(400, 177, 100, 45));
@@ -219,10 +199,26 @@ public:
 "font-size:18px;\n"
 "color: rgb(110, 110, 110);"));
         label_4->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        QWidget::setTabOrder(lineEdit_PhoneF1, lineEdit_Password1);
-        QWidget::setTabOrder(lineEdit_Password1, lineEdit_Password2);
-        QWidget::setTabOrder(lineEdit_Password2, lineEdit_CheckRF1);
-        QWidget::setTabOrder(lineEdit_CheckRF1, btn_SubmitF1);
+        btn_MinR->raise();
+        label_picLoveR->raise();
+        btn_SubmitF1->raise();
+        btn_CloseR->raise();
+        lineEdit_oldpassword->raise();
+        lineEdit_Email->raise();
+        label_2R->raise();
+        label_errRF1->raise();
+        lineEdit_Password_new->raise();
+        lineEdit_Password_check->raise();
+        label_2->raise();
+        label_3->raise();
+        label->raise();
+        label_4->raise();
+        btn_Change1->raise();
+        btn_Change2->raise();
+        QWidget::setTabOrder(lineEdit_Email, lineEdit_Password_new);
+        QWidget::setTabOrder(lineEdit_Password_new, lineEdit_Password_check);
+        QWidget::setTabOrder(lineEdit_Password_check, lineEdit_oldpassword);
+        QWidget::setTabOrder(lineEdit_oldpassword, btn_SubmitF1);
 
         retranslateUi(ForgetPassword_1);
 
@@ -236,19 +232,18 @@ public:
         label_picLoveR->setText(QString());
         btn_SubmitF1->setText(QApplication::translate("ForgetPassword_1", "\346\217\220\344\272\244\347\224\263\350\257\267", Q_NULLPTR));
         btn_CloseR->setText(QString());
-        lineEdit_CheckRF1->setText(QString());
-        lineEdit_PhoneF1->setText(QString());
+        lineEdit_oldpassword->setText(QString());
+        lineEdit_Email->setText(QString());
         label_2R->setText(QApplication::translate("ForgetPassword_1", "\345\277\230\350\256\260\345\257\206\347\240\201", Q_NULLPTR));
         label_errRF1->setText(QString());
-        lineEdit_Password1->setText(QString());
-        lineEdit_Password2->setText(QString());
+        lineEdit_Password_new->setText(QString());
+        lineEdit_Password_check->setText(QString());
         btn_Change1->setText(QString());
         btn_Change2->setText(QString());
-        btn_getCheckNumF1->setText(QApplication::translate("ForgetPassword_1", "\350\216\267\345\217\226\351\252\214\350\257\201\347\240\201", Q_NULLPTR));
         label_2->setText(QApplication::translate("ForgetPassword_1", "\350\264\246\345\217\267", Q_NULLPTR));
         label_3->setText(QApplication::translate("ForgetPassword_1", "\347\241\256\350\256\244\345\257\206\347\240\201", Q_NULLPTR));
-        label->setText(QApplication::translate("ForgetPassword_1", "\346\211\213\346\234\272\351\252\214\350\257\201\347\240\201", Q_NULLPTR));
-        label_4->setText(QApplication::translate("ForgetPassword_1", "\345\257\206\347\240\201", Q_NULLPTR));
+        label->setText(QApplication::translate("ForgetPassword_1", "\346\227\247\345\257\206\347\240\201", Q_NULLPTR));
+        label_4->setText(QApplication::translate("ForgetPassword_1", "\346\226\260\345\257\206\347\240\201", Q_NULLPTR));
     } // retranslateUi
 
 };

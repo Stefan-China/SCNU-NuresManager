@@ -1,35 +1,42 @@
-﻿/*****************************************
- * 作者: YYC
- * 日期: 2020-04-26
- * 功能：柱状图
- * ***************************************/
-#ifndef CYLINDERCONTROL_H
-#define CYLINDERCONTROL_H
+﻿#ifndef FRAMECONTROL_H
+#define FRAMECONTROL_H
+#pragma execution_character_set("utf-8")
 
-#include <QWidget>
-#include <QPainter>
-#include "baidu_image/baidu_image.h"
-namespace Ui {
-class CylinderControl;
-}
+#include <QDebug>
+#include <QFrame>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QPushButton>
+#include "informatiton_patient.h"
 
-class CylinderControl : public QWidget
+class QLabel;
+class QPushButton;
+class QLabel;
+
+class CylinderControl : public QFrame
 {
     Q_OBJECT
 
 public:
-    explicit CylinderControl(QWidget *parent = 0);
+    explicit CylinderControl(QFrame *parent = 0);
     ~CylinderControl();
-
-    void setSliderValue(float value);
-    void setSliderText(const QString &value);
+    void setLabelPixMap(const QPixmap &pixMap);
+    void setTitleInfo(const QString &title);
+    void createFrame(const QPixmap &pixMap, const QString &title,const QString &name);
 
 private:
-    Ui::CylinderControl *ui;
-    float sliderValue = 0;
-    QString sliderText;
+    QLabel *labelImage;
+    QLabel *labelTitle;
+    QPushButton *pushButtonDownLoad;
 private:
-    void paintEvent(QPaintEvent *paintEvent) override;
+    const int IMAGE_SIZE = 36;
+    const int FIXED_WIDTH = 155;
+    const int FIXED_HEIGHT = 90;
+    const int BUTTON_WIDTH = 80;
+    const int BUTTON_HEIGHT = 25;
+public slots:
+    void Button( QString title);
 };
 
-#endif // CYLINDERCONTROL_H
+#endif // FRAMECONTROL_H

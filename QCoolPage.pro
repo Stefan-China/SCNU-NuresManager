@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-06-16T13:01:16
+# Project created by QtCreator 2021-06-16T13:01:16
 #
 #-------------------------------------------------
 
@@ -11,6 +11,8 @@ QT       += core gui network concurrent xml
 QT       += webenginewidgets
 QT       += charts
 QT       += sql   #华南脑控
+QT       += multimedia
+QT       += multimediawidgets  #摄像头
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 CONFIG += c++11
 DEFINES += QT_DEPRECATED_WARNINGS
@@ -28,6 +30,7 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     titlebar/maintitlebar.cpp \
     titlebar/titlebar.cpp \
+    titlebar/connecttipform.cpp \
     maincontent/controltabwidget.cpp \
     maincontent/controltreewidget.cpp \
     systemtray/systemtray.cpp \
@@ -57,7 +60,13 @@ SOURCES += main.cpp\
     AliyunConnector/AliyunSamrtWardConnector.cpp \
     hand_recieve/handrecieve.cpp \
     baidu_map/bridge.cpp \
-    bci_tcp/tcpserver.cpp
+    bci_tcp/tcpserver.cpp \
+    maincontent/controlwidget/cylindercontrol/camera.cpp \
+    maincontent/controlwidget/cylindercontrol/cylindercontrol.cpp \
+    maincontent/controlwidget/cylindercontrol/informatiton_patient.cpp \
+    maincontent/controlwidget/framecontrol/introduce_ai.cpp \
+    maincontent/controlwidget/progresscontrol/progresscontrol.cpp \
+    maincontent/controlwidget/progresscontrol/information_handband.cpp
 
 
 
@@ -66,6 +75,7 @@ HEADERS  += mainwindow.h \
     globaldef.hpp \
     titlebar/maintitlebar.h \
     titlebar/titlebar.h \
+    titlebar/connecttipform.h \
     maincontent/controltabwidget.h \
     maincontent/controltreewidget.h \
     systemtray/systemtray.h \
@@ -101,7 +111,13 @@ HEADERS  += mainwindow.h \
     baidu_map/bridge.h \
     bci_tcp/tcpserver.h \
     bci_tcp/protocol.h \
-    bci_tcp/sockethandler.h
+    bci_tcp/sockethandler.h \
+    maincontent/controlwidget/cylindercontrol/camera.h \
+    maincontent/controlwidget/cylindercontrol/cylindercontrol.h \
+    maincontent/controlwidget/cylindercontrol/informatiton_patient.h \
+    maincontent/controlwidget/framecontrol/introduce_ai.h \
+    maincontent/controlwidget/progresscontrol/progresscontrol.h \
+    maincontent/controlwidget/progresscontrol/information_handband.h
 
 
 
@@ -122,18 +138,22 @@ FORMS    += mainwindow.ui \
     maincontent/controlwidget/openglcontrol/openglwidget.ui \
     maincontent/controlwidget/processcontrol/processwidget.ui \
     maincontent/controlwidget/listcontrol/listwidget.ui \
-    scnu/widget.ui \
-    baidu_image/baidu_image.ui \
-    maincontent/controlwidget/processcontrol/processcontrol.ui
+    maincontent/controlwidget/processcontrol/processcontrol.ui \
+    maincontent/controlwidget/cylindercontrol/camera.ui \
+    maincontent/controlwidget/cylindercontrol/informatiton_patient.ui \
+    maincontent/controlwidget/framecontrol/introduce_ai.ui \
+    maincontent/controlwidget/progresscontrol/information_handband.ui
 
-include     ($$PWD/LoginSystem/LoginSystem.pri)               #华南脑控
-include     ($$PWD/jsonrpc-qt/jsonrpc-qt.pri )        #华南脑控
-include     ($$PWD/Sign/Sign.pri)                #华南脑控
+include     ($$PWD/LoginSystem/LoginSystem.pri)               #登录
+
 RESOURCES += \
     res.qrc \
     res/shaders.qrc \
-    res/textures.qrc \
     res.qrc \
-    map.qrc
+    map.qrc \
+    maincontent/controlwidget/cylindercontrol/source.qrc
 
 RC_FILE += myapp.rc
+
+DISTFILES +=
+include($(QT_DIR)/config/x8.config)

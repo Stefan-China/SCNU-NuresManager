@@ -18,10 +18,12 @@ ProcessControl::ProcessControl(QWidget *parent) :
     this->initValue();
 }
 
+
 ProcessControl::~ProcessControl()
 {
     delete ui;
 }
+
 
 void ProcessControl::initValue()
 {
@@ -32,6 +34,7 @@ void ProcessControl::initValue()
     m_mapMode[TYPE_NORMAL] = styleSheet.arg("rgb(255, 220, 220)");
     m_mapMode[TYPE_SUCCESS] = styleSheet.arg("rgb(102, 153, 0)");
 }
+
 
 ProcessControl *ProcessControl::getPreWidget() const
 {

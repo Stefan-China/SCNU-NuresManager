@@ -13,6 +13,7 @@ ControlTreeWidget::ControlTreeWidget(QWidget *parent) :
     ui(new Ui::ControlTreeWidget)
 {
     ui->setupUi(this);
+    this->setAttribute(Qt::WA_DeleteOnClose,true);  //关掉的时候同时删除
     this->initValue();
 }
 

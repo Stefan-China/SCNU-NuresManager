@@ -1,0 +1,30 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resource/BG_ADD.png</file>
+        <file>resource/A_clo_state_0.png</file>
+        <file>resource/A_clo_state_1.png</file>
+        <file>resource/A_clo_state_2.png</file>
+        <file>resource/Add_Del.png</file>
+        <file>resource/Add_Del_.png</file>
+        <file>resource/ICON/C_CJWT.png</file>
+        <file>resource/ICON/C_GRXX.png</file>
+        <file>resource/ICON/C_JBSZ.png</file>
+        <file>resource/ICON/C_LXWM.png</file>
+        <file>resource/ICON/F1_BLINK_ALIGN.png</file>
+        <file>resource/ICON/F1_NOD_ALIGN.png</file>
+        <file>resource/ICON/F2_AIR.png</file>
+        <file>resource/ICON/F2_BED_CARING.png</file>
+        <file>resource/ICON/F2_BED_CURTAIN.png</file>
+        <file>resource/ICON/F2_cac.png</file>
+        <file>resource/ICON/F2_curtain.png</file>
+        <file>resource/ICON/F2_ir.png</file>
+        <file>resource/ICON/F2_JACK.png</file>
+        <file>resource/ICON/F2_LIGHT.png</file>
+        <file>resource/ICON/F2_nursingbed.png</file>
+        <file>resource/ICON/F2_plug.png</file>
+        <file>resource/ICON/F2_TV.png</file>
+        <file>resource/ICON/F2_WIN_CURTAIN.png</file>
+        <file>resource/ICON/G_HEALTHY_OBSERVE.png</file>
+        <file>resource/ICON/G_HEALTHY_REPORT.png</file>
+    </qresource>
+</RCC>

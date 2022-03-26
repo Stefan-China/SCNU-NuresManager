@@ -30,7 +30,7 @@ class BannaControl;
 
 namespace BannaSpace
 {
-const int INTERVAL_TIMER = 3000;
+const int INTERVAL_TIMER = 5000;
 const int ANIMATION_DURTION = 200;
 const QByteArray ANIMATION_GEOMETRY = "geometry";
 const QString STYLE_SHEET = "border-image:url(%1)";

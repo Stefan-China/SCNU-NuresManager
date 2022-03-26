@@ -17,6 +17,7 @@ SystemTray::SystemTray(QWidget * parent)
 {
     this->createAction();  //创建托盘菜单
     this->addAction();     //菜单添加事件
+
 }
 
 // 析构函数

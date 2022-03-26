@@ -41,9 +41,22 @@
       <enum>QFrame::Raised</enum>
      </property>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="6">
+      <item row="0" column="2">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="7">
        <widget class="QLabel" name="bluetooth">
         <property name="minimumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
          <size>
           <width>30</width>
           <height>30</height>
@@ -104,14 +117,7 @@
         </property>
        </spacer>
       </item>
-      <item row="0" column="2">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>仅供华南师范大学软件学院使用</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="4">
+      <item row="0" column="5">
        <widget class="QCheckBox" name="openPort">
         <property name="styleSheet">
          <string notr="true"/>
@@ -142,20 +148,7 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="5">
-       <widget class="QComboBox" name="portName">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(170, 255, 255);</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="7">
+      <item row="0" column="8">
        <widget class="QLabel" name="headbattery">
         <property name="minimumSize">
          <size>
@@ -185,7 +178,20 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="8">
+      <item row="0" column="6">
+       <widget class="QComboBox" name="portName">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(170, 255, 255);</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="9">
        <widget class="QLabel" name="handbattery">
         <property name="minimumSize">
          <size>
@@ -215,7 +221,7 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="9">
+      <item row="0" column="10">
        <widget class="QPushButton" name="pushButtonMin">
         <property name="minimumSize">
          <size>
@@ -242,7 +248,7 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="10">
+      <item row="0" column="11">
        <widget class="QPushButton" name="pushButtonNormalMax">
         <property name="minimumSize">
          <size>
@@ -269,7 +275,7 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="11">
+      <item row="0" column="12">
        <widget class="QPushButton" name="pushButtonClose">
         <property name="minimumSize">
          <size>
@@ -285,6 +291,16 @@
         </property>
         <property name="text">
          <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="4">
+       <widget class="QLabel" name="user_name">
+        <property name="styleSheet">
+         <string notr="true">font: 14pt &quot;百度综艺简体&quot;;</string>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
         </property>
        </widget>
       </item>

@@ -9,7 +9,11 @@
 #include <QWidget>
 #include <QPainter>
 #include <QTimer>
-
+#include "flowlayout/flowlayout.h"
+#include "progresscontrol.h"
+#include "LoginSystem/http_login.h"
+class FlowLayout;
+#pragma execution_character_set("utf-8")
 namespace Ui {
 class ProgressWidget;
 }
@@ -21,15 +25,18 @@ class ProgressWidget : public QWidget
 public:
     explicit ProgressWidget(QWidget *parent = 0);
     ~ProgressWidget();
+
 private slots:
-    void updateProgress();
+    void on_pushButton_3_clicked();
+
+    void on_refresh_clicked();
+
 private:
     Ui::ProgressWidget *ui;
 
 private:
     void initValue();
-signals:
-     void signal_send_handbattery(double bat);
+
 };
 
 #endif // PROGRESSWIDGET_H

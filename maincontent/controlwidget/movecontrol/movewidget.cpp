@@ -21,7 +21,7 @@ MoveWidget::MoveWidget(QWidget *parent) :
     ui->setupUi(this);
     this->initValue();
     //bind clicked() with slot
-    connect(ui->LightSwitch,SIGNAL(clicked()),this,SLOT(Onclicked_Mouse()));
+    connect(ui->LigthSwitch,SIGNAL(clicked()),this,SLOT(Onclicked_Mouse()));
     connect(ui->WardDoorSwitch,SIGNAL(clicked()),this,SLOT(Onclicked_Mouse()));
     connect(ui->WaterSwitch,SIGNAL(clicked()),this,SLOT(Onclicked_Mouse()));
     connect(ui->WindowSwitch,SIGNAL(clicked()),this,SLOT(Onclicked_Mouse()));
@@ -49,7 +49,7 @@ MoveWidget::~MoveWidget()
 void MoveWidget::initValue()
 {
    QTimer* myTimer = new QTimer(this);
-    myTimer->setInterval(10000);
+    myTimer->setInterval(10*1000);
     myTimer->start();
 
    connect(myTimer, SIGNAL(timeout()), this, SLOT(freshCloudData()));
@@ -66,8 +66,8 @@ void MoveWidget::Onclicked_Mouse()
     freshCloudData();
     //tranlate the user action to related button attribute
     bool isSucceed = false;
-    if(!QString::compare(identifer,"LightSwitch")){
-        isSucceed = connector.setDataToAliyun(identifer,!cloudData.LightSwitch);
+    if(!QString::compare(identifer,"LigthSwitch")){
+        isSucceed = connector.setDataToAliyun(identifer,!cloudData.LigthSwitch);
     }else if(!QString::compare(identifer,"WardDoorSwitch")){
         isSucceed = connector.setDataToAliyun(identifer,!cloudData.WardDoorSwitch);
     }else if(!QString::compare(identifer,"WaterSwitch")){
@@ -115,9 +115,9 @@ void MoveWidget::freshCloudData()
             QString deviceName =  device.value("attribute").toString();
 
             cloudData.dataAvilabel = true;
-            if(!QString::compare(deviceName,"LightSwitch")){
-                cloudData.LightSwitch = device.value("value").toInt();
-                if(cloudData.LightSwitch==1){
+            if(!QString::compare(deviceName,"LigthSwitch")){
+                cloudData.LigthSwitch = device.value("value").toInt();
+                if(cloudData.LigthSwitch==1){
                     ui->light->setPixmap(QPixmap ("./res/Baidu_JS/LOGO_COLOR/电灯.png"));
                 }else{
                     ui->light->setPixmap(QPixmap("./res/Baidu_JS/LOGO_BLACK/电灯.png"));
@@ -245,7 +245,7 @@ void MoveWidget::Onclicked_bci(short int select)
     {   freshCloudData();
 
         if(select==1){
-           identifer = "LightSwitch";
+           identifer = "LigthSwitch";
         }else if(select==2){
             identifer = "WardDoorSwitch";
         }else if(select==3){
@@ -271,8 +271,8 @@ void MoveWidget::Onclicked_bci(short int select)
         }
         qDebug()<<"脑环在线控制:"<<identifer;
         bool isSucceed = false;
-        if(!QString::compare(identifer,"LightSwitch")){
-            isSucceed = connector.setDataToAliyun(identifer,!cloudData.LightSwitch);
+        if(!QString::compare(identifer,"LigthSwitch")){
+            isSucceed = connector.setDataToAliyun(identifer,!cloudData.LigthSwitch);
         }else if(!QString::compare(identifer,"WardDoorSwitch")){
             isSucceed = connector.setDataToAliyun(identifer,!cloudData.WardDoorSwitch);
         }else if(!QString::compare(identifer,"WaterSwitch")){

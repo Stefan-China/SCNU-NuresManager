@@ -6,12 +6,13 @@
  * ***************************************/
 #include "maintitlebar.h"
 #include "ui_maintitlebar.h"
-
+extern QString username;
 MainTitleBar::MainTitleBar(QWidget *parent) :
     TitleBar(parent),
     ui(new Ui::MainTitleBar)
 {
     ui->setupUi(this);
+    this->setAttribute(Qt::WA_DeleteOnClose,true);  //关掉的时候同时删除
     ui->pushButtonNormalMax->setStyleSheet("QPushButton{border-image: url(:/res/res/image/normal_normal.png);}"
                                            "QPushButton:hover{border-image: url(:/res/res/image/normal_hover.png);}");
     serialPort = new QSerialPort();
@@ -36,15 +37,17 @@ MainTitleBar::MainTitleBar(QWidget *parent) :
 
     //connect headbattery
     MoveWidget *m_MoveWidget= new MoveWidget();
-
     connect(m_MoveWidget,&MoveWidget::signal_send_button,this,&MainTitleBar::button);
-
     connect(m_MoveWidget,&MoveWidget::signal_send_energy,this,&MainTitleBar::slot_mainwindow_battery);
     ui->headbattery->setPixmap(QPixmap (":/res/res/image/HEAD/OUT_BAT.png"));
+
     //connect handbattery
-    ProgressWidget *recieve=new ProgressWidget();
-    connect(recieve,&ProgressWidget::signal_send_handbattery,this,&MainTitleBar::slot_mainwindow_handbattery);
+    information_handband *recieve=new information_handband();
+    connect(recieve,&information_handband::signal_send_handbattery,this,&MainTitleBar::slot_mainwindow_handbattery);
     ui->handbattery->setPixmap(QPixmap(":/res/res/image/HAND/OUT_BAT.png"));
+
+    ui->user_name->setText(username);
+
 
 }
 
@@ -65,11 +68,9 @@ void MainTitleBar::button( short int i_data)
     case 10:serialPort->write("a\n");break;
     case 11:serialPort->write("b\n");break;
     case 12:serialPort->write("c\n");break;
-
     }
-
-
 }
+
 void MainTitleBar::slot_mainwindow_battery(int e)    //电量变化后设置标题栏的槽函数
 {
 
@@ -177,7 +178,9 @@ void MainTitleBar::findPorts()
        ui->portName->addItem(ports.at(i).portName());
     }
     if (cnt == 0) {
-        QMessageBox::warning(NULL, "Error", "Don't free port��");
+        ConnectTipForm* form=new ConnectTipForm();
+        form->setTipText("未开启蓝牙");
+        form->show();
     }
 }
 /*串口程序初始化，115200，8，无，1*/

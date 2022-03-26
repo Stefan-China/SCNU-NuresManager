@@ -59,7 +59,7 @@
      </item>
      <item>
       <property name="text">
-       <string>华师病房病患信息</string>
+       <string>病房病患信息平台</string>
       </property>
       <property name="icon">
        <iconset resource="../res.qrc">

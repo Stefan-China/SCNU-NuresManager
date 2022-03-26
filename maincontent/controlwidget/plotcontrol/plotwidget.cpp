@@ -26,7 +26,7 @@ PlotWidget::~PlotWidget()
 void PlotWidget::initValue()
 {
     QTimer *myTimer = new QTimer(this);
-    myTimer->setInterval(3000);
+    myTimer->setInterval(1000*5);
     myTimer->start();
 
    connect(myTimer, SIGNAL(timeout()), this, SLOT(freshCloudData()));
@@ -96,14 +96,14 @@ void PlotWidget::freshCloudData(){
                 cloudData2.TVOC = device.value("value").toDouble();
             }else if(!QString::compare(deviceName,"HCHO")){
                 cloudData2.HCHO = device.value("value").toDouble();
-            }else if(!QString::compare(deviceName,"pm2.5")){
-                cloudData2.pm25 = device.value("value").toDouble();
+            }else if(!QString::compare(deviceName,"PM25")){
+                cloudData2.PM25 = device.value("value").toDouble();
             }else if(!QString::compare(deviceName,"PM10")){
                 cloudData2.PM10 = device.value("value").toDouble();
-            }else if(!QString::compare(deviceName,"IndoorTemperature")){
-                cloudData2.IndoorTemperature = device.value("value").toDouble();
-            }else if(!QString::compare(deviceName,"CurrentHumidity")){
-                cloudData2.CurrentHumidity = device.value("value").toDouble();
+            }else if(!QString::compare(deviceName,"Temperature")){
+                cloudData2.Temperature = device.value("value").toDouble();
+            }else if(!QString::compare(deviceName,"Humidity")){
+                cloudData2.Humidity = device.value("value").toDouble();
              }
         }
     }
@@ -115,12 +115,12 @@ void PlotWidget::freshCloudData(){
 
         ui->CO2->setText(QString::number(cloudData2.CO2, 'f', 1)+" ppm");
 
-        ui->pm25->setText(QString::number(cloudData2.pm25, 'f', 1)+" ug/m3");
+        ui->pm25->setText(QString::number(cloudData2.PM25, 'f', 1)+" ug/m3");
 
         ui->PM10->setText(QString::number(cloudData2.PM10, 'f', 1)+" ug/m3");
 
-        ui->IndoorTemperature->setText(QString::number(cloudData2.IndoorTemperature, 'f', 1)+" C");
+        ui->IndoorTemperature->setText(QString::number(cloudData2.Temperature, 'f', 1)+" C");
 
-        ui->CurrentHumidity->setText(QString::number(cloudData2.CurrentHumidity, 'f', 1)+" %");
+        ui->CurrentHumidity->setText(QString::number(cloudData2.Humidity, 'f', 1)+" %");
     }
 }

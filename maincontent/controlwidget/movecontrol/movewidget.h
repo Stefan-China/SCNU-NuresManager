@@ -22,7 +22,7 @@ struct CloudData
 {
 
     //按钮信息
-    int LightSwitch;
+    int LigthSwitch;
     int WaterSwitch;
     int WindowSwitch;
     int AirSwitch;

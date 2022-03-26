@@ -25,10 +25,13 @@ public:
     double ui_Battery;
     double ui_Steps;
     void Server_Recieve(void);
+    QString battery_flag;
     QString connect_flag;
-    QString state_flag;
+    QString status_flag;
     void Drop_Server_Recieve(void);
     void Emotion_Server_Recieve(void);
+    void Drop_open(void);
+    void Drop_lock(void);
     double anger;
     double disgust;
     double fear;

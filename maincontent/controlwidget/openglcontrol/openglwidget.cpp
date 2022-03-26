@@ -23,7 +23,7 @@ OpenglWidget::~OpenglWidget()
 void OpenglWidget::initValue()
 {
     QTimer *myTimer = new QTimer(this);
-    myTimer->setInterval(3000);
+    myTimer->setInterval(1000*2);
     myTimer->start();
     connect(myTimer, SIGNAL(timeout()), this, SLOT(updateProgress()));
 }
@@ -39,13 +39,13 @@ void OpenglWidget::updateProgress()
     ui->widget_4->page()->load(QUrl("http://tan1024.top:8020/getimg"));
     handRecieve *recieve=new handRecieve;
     recieve->Emotion_Server_Recieve();
-    ui->happy->setValue(ceil(recieve->happiness));
-    ui->neutral->setValue(ceil(recieve->neutral));
-    ui->surprise->setValue(ceil(recieve->surprise));
-    ui->sadness->setValue(ceil(recieve->sadness));
-    ui->disgust->setValue(ceil(recieve->disgust));
-    ui->anger->setValue(ceil(recieve->anger));
-    ui->fear->setValue(ceil(recieve->fear));
+    ui->happy->setValue(ceil(recieve->happiness*100));
+    ui->neutral->setValue(ceil(recieve->neutral*100));
+    ui->surprise->setValue(ceil(recieve->surprise*100));
+    ui->sadness->setValue(ceil(recieve->sadness*100));
+    ui->disgust->setValue(ceil(recieve->disgust*100));
+    ui->anger->setValue(ceil(recieve->anger*100));
+    ui->fear->setValue(ceil(recieve->fear*100));
 
     double eomotion[7]={recieve->happiness,recieve->neutral,recieve->surprise,recieve->sadness,recieve->disgust,recieve->anger,recieve->fear};
     double max=eomotion[0];

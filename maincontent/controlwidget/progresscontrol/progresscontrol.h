@@ -1,39 +1,52 @@
-﻿/*****************************************
- * 作者: YYC
- * 日期: 2020-04-26
- * 功能：进度条
- * ***************************************/
-#ifndef PROGRESSCONTROL_H
+﻿#ifndef PROGRESSCONTROL_H
 #define PROGRESSCONTROL_H
 
-#include <QWidget>
-#include <QPainter>
-#include <QPen>
-#include "battery/battery.h"
-#include "hand_recieve/handrecieve.h"
+
+#pragma execution_character_set("utf-8")
+#include <QFrame>
+#include <QDebug>
+
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QPushButton>
+#include "information_handband.h"
+class QLabel;
+class QPushButton;
+class QLabel;
+
 namespace Ui {
-class ProgressControl;
+class progresscontrol;
 }
 
-class ProgressControl : public QWidget
+class progresscontrol : public QFrame
 {
     Q_OBJECT
 
 public:
-    explicit ProgressControl(QWidget *parent = 0);
-    ~ProgressControl();
+    explicit progresscontrol(QFrame *parent = nullptr);
+    ~progresscontrol();
 
-    void setProgressValue(int value);
-    void setPaintColor(const QColor &value);
-    void setProgressFinish();
-
-private:
-    Ui::ProgressControl *ui;
-    float progressValue = 0;
-    QColor paintColor = QColor(Qt::white);
+    void setLabelPixMap(const QPixmap &pixMap);
+    void setTitleInfo(const QString &title);
+    void createFrame(const QPixmap &pixMap, const QString &title,const QString &name);
 
 private:
-      void paintEvent(QPaintEvent *paintEvent) override;
+    QLabel *labelImage;
+    QLabel *labelTitle;
+    QPushButton *pushButtonDownLoad;
+private:
+    const int IMAGE_SIZE = 36;
+    const int FIXED_WIDTH = 155;
+    const int FIXED_HEIGHT = 90;
+    const int BUTTON_WIDTH = 80;
+    const int BUTTON_HEIGHT = 25;
+public slots:
+    void Button( QString title);
+
+
+
 };
+
 
 #endif // PROGRESSCONTROL_H

@@ -1,0 +1,1094 @@
+卷 新加卷 的文件夹 PATH 列表
+卷序列号为 7849-4C13
+D:.
+│  .qmake.stash
+│  BCI.ico
+│  combobox.cpp
+│  combobox.h
+│  globaldef.hpp
+│  info.txt
+│  LocalInfo.db
+│  main.cpp
+│  mainwindow.cpp
+│  mainwindow.h
+│  mainwindow.ui
+│  Makefile
+│  Makefile.Debug
+│  Makefile.Release
+│  map.qrc
+│  myapp.rc
+│  mylineedit.cpp
+│  mylineedit.h
+│  QCoolPage.pro
+│  QCoolPage.pro.user
+│  QCoolPage.pro.user.b1708b9.4.8-pre1
+│  QCoolPage.pro.user.fd47adc
+│  res.qrc
+│  
+├─AliyunConnector
+│      AliyunIoTClient.cpp
+│      AliyunIoTClient.h
+│      AliyunSamrtWardConnector.cpp
+│      AliyunSamrtWardConnector.h
+│      AliyunThingManager.cpp
+│      AliyunThingManager.h
+│      Authorization.h
+│      Constant.h
+│      DateUtil.h
+│      JsonHandle.h
+│      
+├─baidu_image
+│      baidu_image.cpp
+│      baidu_image.h
+│      baidu_image.ui
+│      http.cpp
+│      http.h
+│      myimage.cpp
+│      myimage.h
+│      
+├─baidu_map
+│      bridge.cpp
+│      bridge.h
+│      JasonQt_Net.cpp
+│      JasonQt_Net.h
+│      
+├─bci_tcp
+│      protocol.h
+│      sockethandler.h
+│      tcpserver.cpp
+│      tcpserver.h
+│      
+├─debug
+├─etc
+│      qt.conf
+│      
+├─flowlayout
+│      flowlayout.cpp
+│      flowlayout.h
+│      
+├─hand_recieve
+│      handrecieve.cpp
+│      handrecieve.h
+│      
+├─jsonrpc-qt
+│  │  error.cpp
+│  │  error.h
+│  │  httphelper.cpp
+│  │  httphelper.h
+│  │  jrpcclient.cpp
+│  │  jrpcclient.h
+│  │  jsonrpc-qt.pri
+│  │  tcphelper.cpp
+│  │  tcphelper.h
+│  │  transporthandler.h
+│  │  util.h
+│  │  
+│  └─include
+│      └─rapidjson
+│          │  allocators.h
+│          │  cursorstreamwrapper.h
+│          │  document.h
+│          │  encodedstream.h
+│          │  encodings.h
+│          │  filereadstream.h
+│          │  filewritestream.h
+│          │  fwd.h
+│          │  istreamwrapper.h
+│          │  memorybuffer.h
+│          │  memorystream.h
+│          │  ostreamwrapper.h
+│          │  pointer.h
+│          │  prettywriter.h
+│          │  rapidjson.h
+│          │  reader.h
+│          │  schema.h
+│          │  stream.h
+│          │  stringbuffer.h
+│          │  writer.h
+│          │  
+│          ├─error
+│          │      en.h
+│          │      error.h
+│          │      
+│          ├─internal
+│          │      biginteger.h
+│          │      clzll.h
+│          │      diyfp.h
+│          │      dtoa.h
+│          │      ieee754.h
+│          │      itoa.h
+│          │      meta.h
+│          │      pow10.h
+│          │      regex.h
+│          │      stack.h
+│          │      strfunc.h
+│          │      strtod.h
+│          │      swap.h
+│          │      
+│          └─msinttypes
+│                  inttypes.h
+│                  stdint.h
+│                  
+├─LoginSystem
+│  │  accountitem.cpp
+│  │  accountitem.h
+│  │  combobox.cpp
+│  │  combobox.h
+│  │  database.cpp
+│  │  database.h
+│  │  forgetpassword_1.cpp
+│  │  forgetpassword_1.h
+│  │  forgetpassword_1.ui
+│  │  LoginSystem.pri
+│  │  login_register.cpp
+│  │  login_register.h
+│  │  login_register.ui
+│  │  mylineedit.cpp
+│  │  mylineedit.h
+│  │  rec.qrc
+│  │  register.cpp
+│  │  register.h
+│  │  register.ui
+│  │  upload_data.cpp
+│  │  upload_data.h
+│  │  
+│  └─image
+│          blue_pants.png
+│          btn_bukejian2.png
+│          btn_Close .png
+│          btn_Close _hover.png
+│          btn_kejian2.png
+│          btn_Max .png
+│          btn_Max_hover.png
+│          btn_Min.png
+│          btn_Min_hover.png
+│          checked_1.png
+│          checked_2.png
+│          Close.png
+│          Close01.png
+│          Close02.png
+│          Close_hover.png
+│          comboBox_btn (1).png
+│          comboBox_btn (2).png
+│          comboBox_btn (3).png
+│          green_pants.png
+│          life_ring.png
+│          life_ring1.png
+│          life_ring2.png
+│          Login_BG.png
+│          Login_BGx.png
+│          Login_BGxx.png
+│          Login_BGxxx.png
+│          Login_BGxxxx.png
+│          Login_BGxxxxx.png
+│          login_wait1.gif
+│          login_wait2.gif
+│          login_wait3.gif
+│          login_wait4.gif
+│          Love.png
+│          Lovex.png
+│          Lovexx.png
+│          Lovexxx.png
+│          Lovey.png
+│          Loveyy.png
+│          Loveyyy.png
+│          Loveyyyy.png
+│          Min.png
+│          Min01.png
+│          Min_hover.png
+│          RegisterSuccess.png
+│          unchecked_1.png
+│          unchecked_2.png
+│          
+├─Login_info
+│      Login_info.ini
+│      
+├─maincontent
+│  │  controltabwidget.cpp
+│  │  controltabwidget.h
+│  │  controltabwidget.ui
+│  │  controltreewidget.cpp
+│  │  controltreewidget.h
+│  │  controltreewidget.ui
+│  │  
+│  ├─controlwidget
+│  │  ├─bannacontrol
+│  │  │      bannacontrol.cpp
+│  │  │      bannacontrol.h
+│  │  │      bannacontrol.ui
+│  │  │      bannawidget.cpp
+│  │  │      bannawidget.h
+│  │  │      bannawidget.ui
+│  │  │      
+│  │  ├─cylindercontrol
+│  │  │      cylindercontrol.cpp
+│  │  │      cylindercontrol.h
+│  │  │      cylindercontrol.ui
+│  │  │      cylinderwidget.cpp
+│  │  │      cylinderwidget.h
+│  │  │      cylinderwidget.ui
+│  │  │      
+│  │  ├─framecontrol
+│  │  │      framecontrol.cpp
+│  │  │      framecontrol.h
+│  │  │      framewidget.cpp
+│  │  │      framewidget.h
+│  │  │      framewidget.ui
+│  │  │      
+│  │  ├─listcontrol
+│  │  │      listcontrol.cpp
+│  │  │      listcontrol.h
+│  │  │      listwidget.cpp
+│  │  │      listwidget.h
+│  │  │      listwidget.ui
+│  │  │      
+│  │  ├─movecontrol
+│  │  │      movewidget.cpp
+│  │  │      movewidget.h
+│  │  │      movewidget.ui
+│  │  │      
+│  │  ├─openglcontrol
+│  │  │  │  cameralibrary.cpp
+│  │  │  │  cameralibrary.h
+│  │  │  │  objectfactory.cpp
+│  │  │  │  objectfactory.h
+│  │  │  │  openglcontrol.cpp
+│  │  │  │  openglcontrol.h
+│  │  │  │  opengldef.h
+│  │  │  │  openglwidget.cpp
+│  │  │  │  openglwidget.h
+│  │  │  │  openglwidget.ui
+│  │  │  │  shaderlibrary.cpp
+│  │  │  │  shaderlibrary.h
+│  │  │  │  texturelibrary.cpp
+│  │  │  │  texturelibrary.h
+│  │  │  │  
+│  │  │  └─objectmodel
+│  │  │          objectcube.h
+│  │  │          objectparent.cpp
+│  │  │          objectparent.h
+│  │  │          
+│  │  ├─plotcontrol
+│  │  │      plotcontrol.cpp
+│  │  │      plotcontrol.h
+│  │  │      plotcontrol.ui
+│  │  │      plotwidget.cpp
+│  │  │      plotwidget.h
+│  │  │      plotwidget.ui
+│  │  │      
+│  │  ├─processcontrol
+│  │  │      processcontrol.cpp
+│  │  │      processcontrol.h
+│  │  │      processcontrol.ui
+│  │  │      processwidget.cpp
+│  │  │      processwidget.h
+│  │  │      processwidget.ui
+│  │  │      
+│  │  ├─progresscontrol
+│  │  │      progresscontrol.cpp
+│  │  │      progresscontrol.h
+│  │  │      progresscontrol.ui
+│  │  │      progresswidget.cpp
+│  │  │      progresswidget.h
+│  │  │      progresswidget.ui
+│  │  │      
+│  │  ├─slidercontrol
+│  │  │      netreader.cpp
+│  │  │      netreader.h
+│  │  │      qcustomplot.cpp
+│  │  │      qcustomplot.h
+│  │  │      slidercontrol.cpp
+│  │  │      slidercontrol.h
+│  │  │      slidercontrol.ui
+│  │  │      sliderwidget.cpp
+│  │  │      sliderwidget.h
+│  │  │      sliderwidget.ui
+│  │  │      wavewindow.cpp
+│  │  │      wavewindow.h
+│  │  │      wavewindow.ui
+│  │  │      
+│  │  └─tablecontrol
+│  │          tablecontrol.cpp
+│  │          tablecontrol.h
+│  │          tablecontrol.ui
+│  │          tablewidget.cpp
+│  │          tablewidget.h
+│  │          tablewidget.ui
+│  │          
+│  └─wardwidget
+│      ├─bannacontrol
+│      │      bannacontrol.cpp
+│      │      bannacontrol.h
+│      │      bannacontrol.ui
+│      │      bannawidget.cpp
+│      │      bannawidget.h
+│      │      bannawidget.ui
+│      │      
+│      ├─cylindercontrol
+│      │      cylindercontrol.cpp
+│      │      cylindercontrol.h
+│      │      cylindercontrol.ui
+│      │      cylinderwidget.cpp
+│      │      cylinderwidget.h
+│      │      cylinderwidget.ui
+│      │      
+│      ├─framecontrol
+│      │      framecontrol.cpp
+│      │      framecontrol.h
+│      │      framewidget.cpp
+│      │      framewidget.h
+│      │      framewidget.ui
+│      │      
+│      ├─ID_data
+│      │      cylindercontrol.cpp
+│      │      cylindercontrol.h
+│      │      cylindercontrol.ui
+│      │      cylinderwidget.cpp
+│      │      cylinderwidget.h
+│      │      cylinderwidget.ui
+│      │      
+│      ├─listcontrol
+│      │      listcontrol.cpp
+│      │      listcontrol.h
+│      │      listcontrol.ui
+│      │      listwidget.cpp
+│      │      listwidget.h
+│      │      listwidget.ui
+│      │      
+│      ├─movecontrol
+│      │      movecontrol.cpp
+│      │      movecontrol.h
+│      │      movecontrol.ui
+│      │      movewidget.cpp
+│      │      movewidget.h
+│      │      movewidget.ui
+│      │      
+│      ├─openglcontrol
+│      │  │  cameralibrary.cpp
+│      │  │  cameralibrary.h
+│      │  │  objectfactory.cpp
+│      │  │  objectfactory.h
+│      │  │  openglcontrol.cpp
+│      │  │  openglcontrol.h
+│      │  │  opengldef.h
+│      │  │  openglwidget.cpp
+│      │  │  openglwidget.h
+│      │  │  openglwidget.ui
+│      │  │  shaderlibrary.cpp
+│      │  │  shaderlibrary.h
+│      │  │  texturelibrary.cpp
+│      │  │  texturelibrary.h
+│      │  │  
+│      │  └─objectmodel
+│      │          objectcube.cpp
+│      │          objectcube.h
+│      │          objectparent.cpp
+│      │          objectparent.h
+│      │          
+│      ├─plotcontrol
+│      │      plotcontrol.cpp
+│      │      plotcontrol.h
+│      │      plotcontrol.ui
+│      │      plotwidget.cpp
+│      │      plotwidget.h
+│      │      plotwidget.ui
+│      │      
+│      ├─processcontrol
+│      │      processcontrol.cpp
+│      │      processcontrol.h
+│      │      processcontrol.ui
+│      │      processwidget.cpp
+│      │      processwidget.h
+│      │      processwidget.ui
+│      │      
+│      ├─progresscontrol
+│      │      progresscontrol.cpp
+│      │      progresscontrol.h
+│      │      progresscontrol.ui
+│      │      progresswidget.cpp
+│      │      progresswidget.h
+│      │      progresswidget.ui
+│      │      
+│      ├─slidercontrol
+│      │      slidercontrol.cpp
+│      │      slidercontrol.h
+│      │      slidercontrol.ui
+│      │      sliderwidget.cpp
+│      │      sliderwidget.h
+│      │      sliderwidget.ui
+│      │      
+│      └─tablecontrol
+│              tablecontrol.cpp
+│              tablecontrol.h
+│              tablecontrol.ui
+│              tablewidget.cpp
+│              tablewidget.h
+│              tablewidget.ui
+│              
+├─mocfile
+│      moc_accountitem.cpp
+│      moc_AliyunIoTClient.cpp
+│      moc_AliyunSamrtWardConnector.cpp
+│      moc_AliyunThingManager.cpp
+│      moc_baidu_image.cpp
+│      moc_bannacontrol.cpp
+│      moc_bannawidget.cpp
+│      moc_bridge.cpp
+│      moc_cameralibrary.cpp
+│      moc_combobox.cpp
+│      moc_controltabwidget.cpp
+│      moc_controltreewidget.cpp
+│      moc_cylinderwidget.cpp
+│      moc_database.cpp
+│      moc_forgetpassword_1.cpp
+│      moc_framewidget.cpp
+│      moc_http.cpp
+│      moc_httphelper.cpp
+│      moc_jrpcclient.cpp
+│      moc_listwidget.cpp
+│      moc_login_register.cpp
+│      moc_mainobject.cpp
+│      moc_maintitlebar.cpp
+│      moc_mainwindow.cpp
+│      moc_movewidget.cpp
+│      moc_mylineedit.cpp
+│      moc_numberanimation.cpp
+│      moc_objectparent.cpp
+│      moc_openglcontrol.cpp
+│      moc_openglwidget.cpp
+│      moc_plotcontrol.cpp
+│      moc_plotwidget.cpp
+│      moc_predefs.h
+│      moc_processcontrol.cpp
+│      moc_processwidget.cpp
+│      moc_progresswidget.cpp
+│      moc_qcustomplot.cpp
+│      moc_register.cpp
+│      moc_shaderlibrary.cpp
+│      moc_sign_algorithm.cpp
+│      moc_sliderwidget.cpp
+│      moc_sockethandler.cpp
+│      moc_splashscreen.cpp
+│      moc_systemtray.cpp
+│      moc_tablewidget.cpp
+│      moc_tcphelper.cpp
+│      moc_tcpserver.cpp
+│      moc_titlebar.cpp
+│      moc_transporthandler.cpp
+│      moc_widget.cpp
+│      
+├─numberanimation
+│      numberanimation.cpp
+│      numberanimation.h
+│      
+├─objfile
+│      accountitem.obj
+│      AliyunIoTClient.obj
+│      AliyunSamrtWardConnector.obj
+│      AliyunThingManager.obj
+│      baidu_image.obj
+│      bannacontrol.obj
+│      bannawidget.obj
+│      bridge.obj
+│      cameralibrary.obj
+│      combobox.obj
+│      controltabwidget.obj
+│      controltreewidget.obj
+│      cylinderwidget.obj
+│      database.obj
+│      error.obj
+│      flowlayout.obj
+│      forgetpassword_1.obj
+│      framewidget.obj
+│      handrecieve.obj
+│      http.obj
+│      httphelper.obj
+│      jrpcclient.obj
+│      listwidget.obj
+│      login_register.obj
+│      main.obj
+│      mainobject.obj
+│      maintitlebar.obj
+│      mainwindow.obj
+│      moc_accountitem.obj
+│      moc_AliyunIoTClient.obj
+│      moc_AliyunSamrtWardConnector.obj
+│      moc_AliyunThingManager.obj
+│      moc_baidu_image.obj
+│      moc_bannacontrol.obj
+│      moc_bannawidget.obj
+│      moc_bridge.obj
+│      moc_cameralibrary.obj
+│      moc_combobox.obj
+│      moc_controltabwidget.obj
+│      moc_controltreewidget.obj
+│      moc_cylinderwidget.obj
+│      moc_database.obj
+│      moc_forgetpassword_1.obj
+│      moc_framewidget.obj
+│      moc_http.obj
+│      moc_httphelper.obj
+│      moc_jrpcclient.obj
+│      moc_listwidget.obj
+│      moc_login_register.obj
+│      moc_mainobject.obj
+│      moc_maintitlebar.obj
+│      moc_mainwindow.obj
+│      moc_movewidget.obj
+│      moc_mylineedit.obj
+│      moc_numberanimation.obj
+│      moc_objectparent.obj
+│      moc_openglcontrol.obj
+│      moc_openglwidget.obj
+│      moc_plotcontrol.obj
+│      moc_plotwidget.obj
+│      moc_processcontrol.obj
+│      moc_processwidget.obj
+│      moc_progresswidget.obj
+│      moc_qcustomplot.obj
+│      moc_register.obj
+│      moc_shaderlibrary.obj
+│      moc_sign_algorithm.obj
+│      moc_sliderwidget.obj
+│      moc_sockethandler.obj
+│      moc_splashscreen.obj
+│      moc_systemtray.obj
+│      moc_tablewidget.obj
+│      moc_tcphelper.obj
+│      moc_tcpserver.obj
+│      moc_titlebar.obj
+│      moc_transporthandler.obj
+│      moc_widget.obj
+│      movewidget.obj
+│      myapp.res
+│      myimage.obj
+│      mylineedit.obj
+│      numberanimation.obj
+│      objectcube.obj
+│      objectfactory.obj
+│      objectparent.obj
+│      openglcontrol.obj
+│      openglwidget.obj
+│      plotcontrol.obj
+│      plotwidget.obj
+│      processcontrol.obj
+│      processwidget.obj
+│      progresswidget.obj
+│      qcustomplot.obj
+│      qrc_map.obj
+│      qrc_rec.obj
+│      qrc_res.obj
+│      qrc_shaders.obj
+│      qrc_textures.obj
+│      register.obj
+│      shaderlibrary.obj
+│      sign_algorithm.obj
+│      sliderwidget.obj
+│      splashscreen.obj
+│      systemtray.obj
+│      tablewidget.obj
+│      tcphelper.obj
+│      tcpserver.obj
+│      texturelibrary.obj
+│      titlebar.obj
+│      upload_data.obj
+│      widget.obj
+│      
+├─qcustomplot
+│      qcustomplot.cpp
+│      qcustomplot.h
+│      
+├─rcfile
+│      qrc_map.cpp
+│      qrc_rec.cpp
+│      qrc_res.cpp
+│      qrc_shaders.cpp
+│      qrc_textures.cpp
+│      
+├─release
+│  │  D3Dcompiler_47.dll
+│  │  libeay32.dll
+│  │  libEGL.dll
+│  │  libGLESV2.dll
+│  │  LocalInfo.db
+│  │  opengl32sw.dll
+│  │  Qt5Charts.dll
+│  │  Qt5Core.dll
+│  │  Qt5Gui.dll
+│  │  Qt5Network.dll
+│  │  Qt5Positioning.dll
+│  │  Qt5PrintSupport.dll
+│  │  Qt5Qml.dll
+│  │  Qt5Quick.dll
+│  │  Qt5QuickWidgets.dll
+│  │  Qt5SerialPort.dll
+│  │  Qt5Sql.dll
+│  │  Qt5Svg.dll
+│  │  Qt5WebChannel.dll
+│  │  Qt5WebEngineCore.dll
+│  │  Qt5WebEngineWidgets.dll
+│  │  Qt5Widgets.dll
+│  │  QtWebEngineProcess.exe
+│  │  SCNU_WARD.exe
+│  │  ssleay32.dll
+│  │  
+│  ├─bearer
+│  │      qgenericbearer.dll
+│  │      
+│  ├─iconengines
+│  │      qsvgicon.dll
+│  │      
+│  ├─imageformats
+│  │      qgif.dll
+│  │      qicns.dll
+│  │      qico.dll
+│  │      qjpeg.dll
+│  │      qsvg.dll
+│  │      qtga.dll
+│  │      qtiff.dll
+│  │      qwbmp.dll
+│  │      qwebp.dll
+│  │      
+│  ├─platforms
+│  │      qwindows.dll
+│  │      
+│  ├─position
+│  │      qtposition_geoclue.dll
+│  │      qtposition_positionpoll.dll
+│  │      qtposition_serialnmea.dll
+│  │      
+│  ├─printsupport
+│  │      windowsprintersupport.dll
+│  │      
+│  ├─res
+│  │  │  shaders.qrc
+│  │  │  textures.qrc
+│  │  │  
+│  │  ├─Baidu_JS
+│  │  │  │  BDMap.html
+│  │  │  │  BMapLib_GeoUtils.js
+│  │  │  │  DrawingManager.js
+│  │  │  │  GeoUtils_min.js
+│  │  │  │  home.png
+│  │  │  │  qwebchannel.js
+│  │  │  │  
+│  │  │  ├─LOGO_BLACK
+│  │  │  │      sos.png
+│  │  │  │      Water.png
+│  │  │  │      人工.png
+│  │  │  │      医生.png
+│  │  │  │      家属.png
+│  │  │  │      护士.png
+│  │  │  │      电灯.png
+│  │  │  │      电视.png
+│  │  │  │      看护,护理,护士,nurse.png
+│  │  │  │      空调.png
+│  │  │  │      窗户-开.png
+│  │  │  │      门锁.png
+│  │  │  │      食堂-01.png
+│  │  │  │      
+│  │  │  └─LOGO_COLOR
+│  │  │          sos.png
+│  │  │          Water.png
+│  │  │          人工.png
+│  │  │          医生.png
+│  │  │          家属.png
+│  │  │          护士.png
+│  │  │          电灯.png
+│  │  │          电视.png
+│  │  │          看护,护理,护士,nurse.png
+│  │  │          空调.png
+│  │  │          窗户-开.png
+│  │  │          门锁.png
+│  │  │          食堂-01.png
+│  │  │          
+│  │  ├─image
+│  │  │  │  close_hover.png
+│  │  │  │  close_normal.png
+│  │  │  │  image.png
+│  │  │  │  left_arrow_hover.png
+│  │  │  │  left_arrow_normal.png
+│  │  │  │  left_arrow_pressed.png
+│  │  │  │  max_hover.png
+│  │  │  │  max_normal.png
+│  │  │  │  min_hover.png
+│  │  │  │  min_normal.png
+│  │  │  │  normal_hover.png
+│  │  │  │  normal_normal.png
+│  │  │  │  right_arrow_hover.png
+│  │  │  │  right_arrow_normal.png
+│  │  │  │  right_arrow_pressed.png
+│  │  │  │  ward_bed.png
+│  │  │  │  
+│  │  │  ├─banna
+│  │  │  │      1.jpg
+│  │  │  │      2.jpg
+│  │  │  │      3.jpg
+│  │  │  │      4.jpg
+│  │  │  │      5.jpg
+│  │  │  │      
+│  │  │  ├─detection
+│  │  │  │      CO2.png
+│  │  │  │      Humidity.png
+│  │  │  │      PA.png
+│  │  │  │      PM10.png
+│  │  │  │      PM2.5.png
+│  │  │  │      Temp.png
+│  │  │  │      TVOC.png
+│  │  │  │      
+│  │  │  ├─HAND
+│  │  │  │      FULL_BAT.png
+│  │  │  │      HIGH_BAT.png
+│  │  │  │      LOW_BAT.png
+│  │  │  │      MID_BAT.png
+│  │  │  │      OUT_BAT.png
+│  │  │  │      
+│  │  │  ├─HEAD
+│  │  │  │      FULL_BAT.png
+│  │  │  │      HIGH_BAT.png
+│  │  │  │      LOW_BAT.png
+│  │  │  │      MID_BAT.png
+│  │  │  │      OUT_BAT.png
+│  │  │  │      
+│  │  │  ├─medical
+│  │  │  │      导诊.png
+│  │  │  │      自诊.png
+│  │  │  │      问答.png
+│  │  │  │      问药.png
+│  │  │  │      预问诊.png
+│  │  │  │      
+│  │  │  ├─other
+│  │  │  │      11123.png
+│  │  │  │      center_cyan.png
+│  │  │  │      circle.png
+│  │  │  │      close.png
+│  │  │  │      half_star.png
+│  │  │  │      hover_blue.png
+│  │  │  │      less_than.png
+│  │  │  │      more_than.png
+│  │  │  │      normal_gray.png
+│  │  │  │      star.png
+│  │  │  │      ward.png
+│  │  │  │      ward_flash.png
+│  │  │  │      
+│  │  │  ├─physiological
+│  │  │  │      心率.png
+│  │  │  │      步数.png
+│  │  │  │      温度计.png
+│  │  │  │      血压仪.png
+│  │  │  │      输液.png
+│  │  │  │      
+│  │  │  └─SCNU
+│  │  │          1.png
+│  │  │          
+│  │  ├─shader
+│  │  │      frament_linux.glsl
+│  │  │      frament_windows.glsl
+│  │  │      vertex_linux.glsl
+│  │  │      vertex_windows.glsl
+│  │  │      
+│  │  ├─stylesheet
+│  │  │      stylesheet.qss
+│  │  │      
+│  │  └─texture
+│  │          container.jpg
+│  │          
+│  ├─resources
+│  │      icudtl.dat
+│  │      qtwebengine_devtools_resources.pak
+│  │      qtwebengine_resources.pak
+│  │      qtwebengine_resources_100p.pak
+│  │      qtwebengine_resources_200p.pak
+│  │      
+│  ├─sqldrivers
+│  │      qsqlite.dll
+│  │      qsqlmysql.dll
+│  │      qsqlodbc.dll
+│  │      qsqlpsql.dll
+│  │      
+│  ├─translations
+│  │  │  qt_ar.qm
+│  │  │  qt_bg.qm
+│  │  │  qt_ca.qm
+│  │  │  qt_cs.qm
+│  │  │  qt_da.qm
+│  │  │  qt_de.qm
+│  │  │  qt_en.qm
+│  │  │  qt_es.qm
+│  │  │  qt_fi.qm
+│  │  │  qt_fr.qm
+│  │  │  qt_gd.qm
+│  │  │  qt_he.qm
+│  │  │  qt_hu.qm
+│  │  │  qt_it.qm
+│  │  │  qt_ja.qm
+│  │  │  qt_ko.qm
+│  │  │  qt_lv.qm
+│  │  │  qt_pl.qm
+│  │  │  qt_ru.qm
+│  │  │  qt_sk.qm
+│  │  │  qt_uk.qm
+│  │  │  
+│  │  └─qtwebengine_locales
+│  │          am.pak
+│  │          ar.pak
+│  │          bg.pak
+│  │          bn.pak
+│  │          ca.pak
+│  │          cs.pak
+│  │          da.pak
+│  │          de.pak
+│  │          el.pak
+│  │          en-GB.pak
+│  │          en-US.pak
+│  │          es-419.pak
+│  │          es.pak
+│  │          et.pak
+│  │          fa.pak
+│  │          fi.pak
+│  │          fil.pak
+│  │          fr.pak
+│  │          gu.pak
+│  │          he.pak
+│  │          hi.pak
+│  │          hr.pak
+│  │          hu.pak
+│  │          id.pak
+│  │          it.pak
+│  │          ja.pak
+│  │          kn.pak
+│  │          ko.pak
+│  │          lt.pak
+│  │          lv.pak
+│  │          ml.pak
+│  │          mr.pak
+│  │          ms.pak
+│  │          nb.pak
+│  │          nl.pak
+│  │          pl.pak
+│  │          pt-BR.pak
+│  │          pt-PT.pak
+│  │          ro.pak
+│  │          ru.pak
+│  │          sk.pak
+│  │          sl.pak
+│  │          sr.pak
+│  │          sv.pak
+│  │          sw.pak
+│  │          ta.pak
+│  │          te.pak
+│  │          th.pak
+│  │          tr.pak
+│  │          uk.pak
+│  │          vi.pak
+│  │          zh-CN.pak
+│  │          zh-TW.pak
+│  │          
+│  └─user
+│      └─18271661322
+├─res
+│  │  lable.gif
+│  │  shaders.qrc
+│  │  textures.qrc
+│  │  
+│  ├─Baidu_JS
+│  │  │  Baidu_JS.rar
+│  │  │  BDMap.html
+│  │  │  BMapLib_GeoUtils.js
+│  │  │  DrawingManager.js
+│  │  │  GeoUtils_min.js
+│  │  │  home.png
+│  │  │  qwebchannel.js
+│  │  │  
+│  │  ├─LOGO_BLACK
+│  │  │      sos.png
+│  │  │      Water.png
+│  │  │      人工.png
+│  │  │      医生.png
+│  │  │      家属.png
+│  │  │      护士.png
+│  │  │      电灯.png
+│  │  │      电视.png
+│  │  │      看护,护理,护士,nurse.png
+│  │  │      空调.png
+│  │  │      窗户-开.png
+│  │  │      门锁.png
+│  │  │      食堂-01.png
+│  │  │      
+│  │  └─LOGO_COLOR
+│  │          sos.png
+│  │          Water.png
+│  │          人工.png
+│  │          医生.png
+│  │          家属.png
+│  │          护士.png
+│  │          电灯.png
+│  │          电视.png
+│  │          看护,护理,护士,nurse.png
+│  │          空调.png
+│  │          窗户-开.png
+│  │          门锁.png
+│  │          食堂-01.png
+│  │          
+│  ├─image
+│  │  │  close_hover.png
+│  │  │  close_normal.png
+│  │  │  image.png
+│  │  │  left_arrow_hover.png
+│  │  │  left_arrow_normal.png
+│  │  │  left_arrow_pressed.png
+│  │  │  max_hover.png
+│  │  │  max_normal.png
+│  │  │  min_hover.png
+│  │  │  min_normal.png
+│  │  │  normal_hover.png
+│  │  │  normal_normal.png
+│  │  │  right_arrow_hover.png
+│  │  │  right_arrow_normal.png
+│  │  │  right_arrow_pressed.png
+│  │  │  ward_bed.png
+│  │  │  white.jpg
+│  │  │  
+│  │  ├─banna
+│  │  │      1.jpg
+│  │  │      2.jpg
+│  │  │      3.jpg
+│  │  │      4.jpg
+│  │  │      5.jpg
+│  │  │      6.jpg
+│  │  │      
+│  │  ├─bluetooth
+│  │  │      bluetooth_off.png
+│  │  │      bluetooth_on.png
+│  │  │      
+│  │  ├─detection
+│  │  │      CO2.png
+│  │  │      Humidity.png
+│  │  │      PA.png
+│  │  │      PM10.png
+│  │  │      PM2.5.png
+│  │  │      Temp.png
+│  │  │      TVOC.png
+│  │  │      
+│  │  ├─emotion
+│  │  │      伤心.png
+│  │  │      厌恶.png
+│  │  │      平静.png
+│  │  │      恐惧.png
+│  │  │      惊讶.png
+│  │  │      愤怒.png
+│  │  │      高兴.png
+│  │  │      
+│  │  ├─HAND
+│  │  │      FULL_BAT.png
+│  │  │      HIGH_BAT.png
+│  │  │      LOW_BAT.png
+│  │  │      MID_BAT.png
+│  │  │      OUT_BAT.png
+│  │  │      
+│  │  ├─HEAD
+│  │  │      FULL_BAT.png
+│  │  │      HIGH_BAT.png
+│  │  │      LOW_BAT.png
+│  │  │      MID_BAT.png
+│  │  │      OUT_BAT.png
+│  │  │      
+│  │  ├─medical
+│  │  │      导诊.png
+│  │  │      自诊.png
+│  │  │      问答.png
+│  │  │      问药.png
+│  │  │      预问诊.png
+│  │  │      
+│  │  ├─other
+│  │  │      11123.png
+│  │  │      center_cyan.png
+│  │  │      circle.png
+│  │  │      close.png
+│  │  │      half_star.png
+│  │  │      hover_blue.png
+│  │  │      less_than.png
+│  │  │      more_than.png
+│  │  │      normal_gray.png
+│  │  │      star.png
+│  │  │      ward.png
+│  │  │      ward_flash.png
+│  │  │      ward_flash_1.png
+│  │  │      
+│  │  ├─physiological
+│  │  │      心率.png
+│  │  │      步数.png
+│  │  │      温度计.png
+│  │  │      血压仪.png
+│  │  │      输液.png
+│  │  │      
+│  │  └─transfuse
+│  │          no_connect.png
+│  │          transfuse_0.png
+│  │          transfuse_1.png
+│  │          transfuse_2.png
+│  │          transfuse_3.png
+│  │          transfuse_full.png
+│  │          transfuse_gif.gif
+│  │          
+│  ├─shader
+│  │      frament_linux.glsl
+│  │      frament_windows.glsl
+│  │      vertex_linux.glsl
+│  │      vertex_windows.glsl
+│  │      
+│  ├─stylesheet
+│  │      stylesheet.qss
+│  │      
+│  └─texture
+│          container.jpg
+│          
+├─screen
+│      mainobject.cpp
+│      mainobject.h
+│      splashscreen.cpp
+│      splashscreen.h
+│      
+├─Sign
+│      sign.ini
+│      Sign.pri
+│      sign_algorithm.cpp
+│      sign_algorithm.h
+│      
+├─systemtray
+│      systemtray.cpp
+│      systemtray.h
+│      
+├─titlebar
+│      maintitlebar.cpp
+│      maintitlebar.h
+│      maintitlebar.ui
+│      titlebar.cpp
+│      titlebar.h
+│      
+├─uifile
+│      ui_baidu_image.h
+│      ui_bannacontrol.h
+│      ui_bannawidget.h
+│      ui_controltabwidget.h
+│      ui_controltreewidget.h
+│      ui_cylinderwidget.h
+│      ui_forgetpassword_1.h
+│      ui_framewidget.h
+│      ui_listwidget.h
+│      ui_login_register.h
+│      ui_maintitlebar.h
+│      ui_mainwindow.h
+│      ui_movewidget.h
+│      ui_openglwidget.h
+│      ui_plotcontrol.h
+│      ui_plotwidget.h
+│      ui_processcontrol.h
+│      ui_processwidget.h
+│      ui_progresswidget.h
+│      ui_register.h
+│      ui_sliderwidget.h
+│      ui_tablewidget.h
+│      
+└─user
+    └─18271661322

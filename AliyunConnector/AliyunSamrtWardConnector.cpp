@@ -1,4 +1,4 @@
-#include "AliyunSamrtWardConnector.h"
+﻿#include "AliyunSamrtWardConnector.h"
 
 
 
@@ -37,7 +37,7 @@ QJsonArray AliyunSamrtWardConnector::getDataFromAliyun(){
     paramsObject.insert("res","a123coWHEAQLVP8S");
 
     QJsonObject json;
-    json.insert("id","a123iTev0dIddE9d");
+    json.insert("id","a123dJufvvmwNMjc");
     json.insert("version","1.0");
     json.insert("request",QJsonValue(requestObject));
     json.insert("params",QJsonValue(paramsObject));
@@ -62,9 +62,9 @@ QJsonArray AliyunSamrtWardConnector::getDataFromAliyun(){
 
     requestObject.insert("apiVer","1.0.2");
     paramsObject.insert("iotId","");
-    paramsObject.insert("productKey","a1Ngjiy9T0E");
+    paramsObject.insert("productKey","a1JELM2QEie");
     paramsObject.insert("deviceName","D001");
-    json.insert("id","a123iTev0dIddE9d");
+    json.insert("id","a123dJufvvmwNMjc");
     json.insert("version","1.0");
     json.insert("request",QJsonValue(requestObject));
     json.insert("params",QJsonValue(paramsObject));
@@ -133,7 +133,7 @@ bool AliyunSamrtWardConnector::setDataToAliyun(QString identifier,int value){
 
     paramsObject;
     paramsObject.insert("grantType","project");
-    paramsObject.insert("res","a123coWHEAQLVP8S");
+    paramsObject.insert("res","a123dJufvvmwNMjc");
 
 
     json.insert("id","a123iTev0dIddE9d");
@@ -159,7 +159,7 @@ bool AliyunSamrtWardConnector::setDataToAliyun(QString identifier,int value){
     QDateTime currentUtcTime = QDateTime::currentDateTimeUtc();
 
     itemsObject.insert(identifier,value);
-    paramsObject.insert("iotId","KGcQCXJ4Ax88gvU0ODZw000000");
+    paramsObject.insert("iotId","jsuoTKrCNiefRfM0rzh2000000");
     paramsObject.insert("productKey","");
     paramsObject.insert("deviceName","");
     paramsObject.insert("items",QJsonValue(itemsObject));

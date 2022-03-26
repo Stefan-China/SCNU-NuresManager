@@ -19,10 +19,10 @@ struct CloudData2
     double HCHO;
     double TVOC;
     double CO2;
-    double pm25;
+    int PM25;
     double PM10;
-    double IndoorTemperature;
-    double CurrentHumidity;
+    float Temperature;
+    float Humidity;
 
 
     bool dataAvilabel = false;

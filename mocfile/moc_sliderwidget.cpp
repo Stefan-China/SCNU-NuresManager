@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../../432/SCUN_Ward_manage/SCNU_SmartWard/maincontent/controlwidget/slidercontrol/sliderwidget.h"
+#include "../maincontent/controlwidget/slidercontrol/sliderwidget.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)

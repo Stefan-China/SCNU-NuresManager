@@ -5,13 +5,9 @@ AccountItem::AccountItem(QWidget *parent) : QWidget(parent)
     m_Mouse_press = false;
         m_pAccount_number = new QLabel();
         m_pDelede_button = new QPushButton();
-
-//        m_pDelede_button->setIcon(QIcon(":/Close"));
         m_pDelede_button->setFixedSize(20, 20);
-//        m_pDelede_button->setStyleSheet("background:transparent;");
         m_pDelede_button->setStyleSheet("QPushButton{border-image: url(:/image/btn_Close .png);}"
                                         "QPushButton:hover{border-image: url(:/image/btn_Close _hover.png);}");
-        //background:transparent;  :/image/btn_Close .png  :/image/btn_Close _hover.png
 
         connect(m_pDelede_button, SIGNAL(clicked()), this, SLOT(removeAccount()));
 

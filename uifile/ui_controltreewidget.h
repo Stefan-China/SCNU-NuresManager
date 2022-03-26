@@ -91,7 +91,7 @@ public:
         QTreeWidgetItem *___qtreewidgetitem = treeWidgetMenu->topLevelItem(0);
         ___qtreewidgetitem->setText(0, QApplication::translate("ControlTreeWidget", "\351\246\226\351\241\265", Q_NULLPTR));
         QTreeWidgetItem *___qtreewidgetitem1 = treeWidgetMenu->topLevelItem(1);
-        ___qtreewidgetitem1->setText(0, QApplication::translate("ControlTreeWidget", "\345\215\216\345\270\210\347\227\205\346\210\277\347\227\205\346\202\243\344\277\241\346\201\257", Q_NULLPTR));
+        ___qtreewidgetitem1->setText(0, QApplication::translate("ControlTreeWidget", "\347\227\205\346\210\277\347\227\205\346\202\243\344\277\241\346\201\257\345\271\263\345\217\260", Q_NULLPTR));
         QTreeWidgetItem *___qtreewidgetitem2 = treeWidgetMenu->topLevelItem(2);
         ___qtreewidgetitem2->setText(0, QApplication::translate("ControlTreeWidget", "\347\224\237\345\221\275\344\275\223\345\276\201\347\233\221\346\265\213\345\271\263\345\217\260", Q_NULLPTR));
         QTreeWidgetItem *___qtreewidgetitem3 = treeWidgetMenu->topLevelItem(3);

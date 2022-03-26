@@ -22,11 +22,13 @@ public:
     explicit TableWidget(QWidget *parent = 0);
     ~TableWidget();
     QMovie *movie;
-
+    //延时函数
+    void Sleep(int msec);
 
 private slots:
-    void on_LightSwitch_clicked();
-    void Progress();
+    void Progress();    
+    void on_open_clicked();
+    void on_lock_clicked();
 
 private:
     Ui::TableWidget *ui;

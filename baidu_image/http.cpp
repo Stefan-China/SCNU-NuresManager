@@ -58,3 +58,4 @@ bool Http::recieve(QString Url,QByteArray &replyData)
     }
 
 }
+

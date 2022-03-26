@@ -29,7 +29,6 @@
         <file>res/stylesheet/stylesheet.qss</file>
         <file>res/image/other/star.png</file>
         <file>res/image/other/half_star.png</file>
-        <file>res/image/SCNU/1.png</file>
         <file>res/image/other/ward_flash.png</file>
         <file>res/image/physiological/步数.png</file>
         <file>res/image/physiological/温度计.png</file>
@@ -42,11 +41,6 @@
         <file>res/image/detection/PM10.png</file>
         <file>res/image/detection/Temp.png</file>
         <file>res/image/detection/TVOC.png</file>
-        <file>res/image/medical/导诊.png</file>
-        <file>res/image/medical/问答.png</file>
-        <file>res/image/medical/问药.png</file>
-        <file>res/image/medical/预问诊.png</file>
-        <file>res/image/medical/自诊.png</file>
         <file>res/image/ward_bed.png</file>
         <file>res/image/HAND/FULL_BAT.png</file>
         <file>res/image/HAND/HIGH_BAT.png</file>
@@ -60,8 +54,6 @@
         <file>res/image/HEAD/OUT_BAT.png</file>
         <file>res/image/banna/5.jpg</file>
         <file>res/image/physiological/输液.png</file>
-        <file>res/image/white.jpg</file>
-        <file>res/lable.gif</file>
         <file>res/image/transfuse/no_connect.png</file>
         <file>res/image/transfuse/transfuse_0.png</file>
         <file>res/image/transfuse/transfuse_1.png</file>
@@ -78,6 +70,46 @@
         <file>res/image/emotion/厌恶.png</file>
         <file>res/image/bluetooth/bluetooth_off.png</file>
         <file>res/image/bluetooth/bluetooth_on.png</file>
+        <file>res/image/other/1.png</file>
+        <file>res/image/other/2.png</file>
+        <file>res/image/other/3.png</file>
+        <file>res/image/other/4.png</file>
+        <file>res/bluetooth_connect/bg.png</file>
+        <file>res/bluetooth_connect/close.png</file>
+        <file>res/patient_information/camera.png</file>
+        <file>res/patient_information/explore.png</file>
+        <file>res/medical_image/smart_ask_medicine.png</file>
+        <file>res/medical_image/smart_ask_medicine_hover.png</file>
+        <file>res/medical_image/smart_autognosis.png</file>
+        <file>res/medical_image/smart_autognosis_hover.png</file>
+        <file>res/medical_image/smart_hospital_guide.png</file>
+        <file>res/medical_image/smart_hospital_guide_hover.png</file>
+        <file>res/medical_image/smart_pre_visits.png</file>
+        <file>res/medical_image/smart_pre_visits_hover.png</file>
+        <file>res/medical_image/smart_qus_ans.png</file>
+        <file>res/medical_image/smart_qus_ans_hover.png</file>
+        <file>res/medical_image/introduce/bg.png</file>
+        <file>res/medical_image/introduce/001.gif</file>
+        <file>res/medical_image/introduce/001.png</file>
+        <file>res/medical_image/introduce/002.gif</file>
+        <file>res/medical_image/introduce/002.png</file>
+        <file>res/medical_image/introduce/003.gif</file>
+        <file>res/medical_image/introduce/003.png</file>
+        <file>res/medical_image/introduce/004.gif</file>
+        <file>res/medical_image/introduce/004.png</file>
+        <file>res/medical_image/introduce/005.gif</file>
+        <file>res/medical_image/introduce/005.png</file>
+        <file>res/medical_image/introduce/006.gif</file>
+        <file>res/medical_image/introduce/006.png</file>
+        <file>res/medical_image/introduce/007.gif</file>
+        <file>res/medical_image/introduce/007.png</file>
+        <file>res/medical_image/introduce/bg-quan.png</file>
+        <file>res/medical_image/introduce/turn_hover.png</file>
+        <file>res/medical_image/introduce/turn_top.png</file>
+        <file>res/medical_image/introduce/word.png</file>
+        <file>res/medical_image/introduce/bg_1.png</file>
+        <file>res/medical_image/introduce/bg_2.png</file>
+        <file>res/patient_information/reflesh.png</file>
     </qresource>
     <qresource prefix="/qt">
         <file>etc/qt.conf</file>

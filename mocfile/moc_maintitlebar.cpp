@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../../432/SCUN_Ward_manage/SCNU_SmartWard/titlebar/maintitlebar.h"
+#include "../titlebar/maintitlebar.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)

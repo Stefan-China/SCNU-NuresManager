@@ -338,17 +338,17 @@ public:
     void retranslateUi(QWidget *PlotWidget)
     {
         PlotWidget->setWindowTitle(QApplication::translate("PlotWidget", "Form", Q_NULLPTR));
-        IndoorTemperature->setText(QApplication::translate("PlotWidget", "TextLabel", Q_NULLPTR));
-        CurrentHumidity->setText(QApplication::translate("PlotWidget", "TextLabel", Q_NULLPTR));
+        IndoorTemperature->setText(QApplication::translate("PlotWidget", "23.0 C", Q_NULLPTR));
+        CurrentHumidity->setText(QApplication::translate("PlotWidget", "27.0 %", Q_NULLPTR));
         label_2->setText(QString());
-        pm25->setText(QApplication::translate("PlotWidget", "TextLabel", Q_NULLPTR));
+        pm25->setText(QApplication::translate("PlotWidget", "33.0 ug/m3", Q_NULLPTR));
         label_4->setText(QString());
         label_5->setText(QString());
-        CO2->setText(QApplication::translate("PlotWidget", "TextLabel", Q_NULLPTR));
-        PM10->setText(QApplication::translate("PlotWidget", "TextLabel", Q_NULLPTR));
-        TVOC->setText(QApplication::translate("PlotWidget", "TextLabel", Q_NULLPTR));
+        CO2->setText(QApplication::translate("PlotWidget", "427.0 ppm", Q_NULLPTR));
+        PM10->setText(QApplication::translate("PlotWidget", "41.0 ug/m3", Q_NULLPTR));
+        TVOC->setText(QApplication::translate("PlotWidget", "15.0 ug/m3", Q_NULLPTR));
         label_11->setText(QString());
-        HCHO->setText(QApplication::translate("PlotWidget", "TextLabel", Q_NULLPTR));
+        HCHO->setText(QApplication::translate("PlotWidget", "2.0 ug/m3", Q_NULLPTR));
         label_12->setText(QString());
         label_14->setText(QString());
         label_13->setText(QString());

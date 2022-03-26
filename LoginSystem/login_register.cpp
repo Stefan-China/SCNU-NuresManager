@@ -1,7 +1,6 @@
 ﻿#include "login_register.h"
 #include "ui_login_register.h"
-
-
+QString cookie, username;
 int DELAY_TIME=200;
 Login_Register::Login_Register(QWidget *parent) :
     QWidget(parent),
@@ -9,7 +8,6 @@ Login_Register::Login_Register(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setFocusPolicy(Qt::ClickFocus);
-    key="njYD76zs";
 
     //设置阴影方法1
     frame = new QFrame(this);
@@ -43,18 +41,20 @@ Login_Register::Login_Register(QWidget *parent) :
 
     ui->btn_Login->setFocusPolicy(Qt::StrongFocus);
 
+    //设置输入账号的ComboBox的格式
+    ui->combo_account->lineEdit()->setPlaceholderText("请输入账号");
+    //实例化一个正则表达式，限制只能输入邮箱;
+    QRegExp rx_account("^[a-z0-9A-Z]+[- | a-z0-9A-Z . _]+@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-z]{2,}$");
+    rx=rx_account;
+    QValidator *validator1 = new QRegExpValidator(rx_account,ui->combo_account->lineEdit());
+    ui->combo_account->lineEdit()->setValidator(validator1);
     //设置输入密码的lineEdit的格式
+
     ui->lineEdit_password->setPlaceholderText("请输入密码");//提示文字
     ui->lineEdit_password->setEchoMode(QLineEdit::Password);//输入密码的格式
     QRegExp rx_password("^[^\u4e00-\u9fa5 ]{6,20}$");//密码6~20位字母、数字、符号
     QValidator *validator2 = new QRegExpValidator(rx_password,ui->lineEdit_password);
     ui->lineEdit_password->setValidator(validator2);
-    //设置输入账号的ComboBox的格式
-    ui->combo_account->lineEdit()->setPlaceholderText("请输入账号");
-    //实例化一个正则表达式，限制只能输入数字，且个数为11//rx=QRegExp("^[0-9]{1,11}$");
-    QRegExp rx_account("^[0-9]{1,11}$");
-    QValidator *validator1 = new QRegExpValidator(rx_account,ui->combo_account->lineEdit());
-    ui->combo_account->lineEdit()->setValidator(validator1);
 
     //高+4.10下拉框
     connect(ui->combo_account,SIGNAL(signal_to_db_remove_account(QString)), this, SLOT(remove_account(QString)));
@@ -65,7 +65,7 @@ Login_Register::Login_Register(QWidget *parent) :
         databs.add_account();//把已经保存的数据读取到databs.accounts里面
         for( int i = 0 ; i < databs.accounts.size() ; i++ )
         {
-            ui->combo_account->increaseItem(QString::number(databs.accounts[i]));//设置下拉框items
+            ui->combo_account->increaseItem(databs.accounts[i]);//设置下拉框items
         }
     }
     //高+4.10下拉框
@@ -73,6 +73,7 @@ Login_Register::Login_Register(QWidget *parent) :
     connect(ui->btn_Min,&QPushButton::clicked,this,&Login_Register::Be_Mini);
     connect(ui->btn_Close,&QPushButton::clicked,this,&Login_Register::Be_Close);
     connect(ui->btn_Login,&QPushButton::clicked,this,&Login_Register::Login);
+    //注册返回
     connect(m_Register,&Register::Show_login,[=](){
         m_Register->close();
         this->show();
@@ -84,41 +85,92 @@ Login_Register::Login_Register(QWidget *parent) :
         this->show();
         ui->btn_Login->setText("登录");
         ui->label_err->clear();
-        //ui->label_err->setText("密码重置，请登录");
+
     });
+    //密码隐藏
+    timer_password=new QTimer(this);
+    timer_password->start(300);
+    connect(timer_password,&QTimer::timeout,this,&Login_Register::count_down_passward);
 
-    m_pHttpClient = new HttpHelper();
-    m_pJRPCClient = new JRPCClient(this, m_pHttpClient);   //ps虚函数与多态，基类指针指向子类m_pHttpClient
-    m_pHttpClient->setUrl(QUrl("http://124.172.189.59:8888/Admin/Api.php?s=index/index"));
+    ui->btn_Change_1->setCheckable(true);
+    ui->btn_Change_1->setVisible(false);
+    ui->btn_Change_1->setStyleSheet("QPushButton{background: transparent;}"
+                                   "QPushButton:hover{background:transparent; border: 2px solid rgb(255,174,81); border-radius: 5px;}");
 
-    connect(m_pJRPCClient, SIGNAL(resultReady(Value&,int)), this, SLOT(onResultReady(Value&,int)));
-    connect(m_pJRPCClient, SIGNAL(resultError(int,QString,Value&,int)), this, SLOT(onResultError(int,QString,Value&,int)));
-    connect(m_pJRPCClient, SIGNAL(error(int,QString)), this, SLOT(onError(int,QString)));
-    connect(m_pJRPCClient, SIGNAL(sent(long)), this, SLOT(onSent(long)));
-
+    //显示和隐藏密码
+    connect(ui->btn_Change_1,&QPushButton::toggled,[this](bool checked){
+        if (checked)
+        {
+            ui->lineEdit_password->setEchoMode(QLineEdit::Normal);
+            ui->btn_Change_1->setIcon(QIcon(":/image/btn_kejian2.png"));
+        }
+        else
+        {
+            ui->lineEdit_password->setEchoMode(QLineEdit::Password);
+            ui->btn_Change_1->setIcon(QIcon(":/image/btn_bukejian2.png"));
+        }
+    });
 //高+4.17
     QList<MyLineEdit *> my_lineEdit = this->findChildren<MyLineEdit *>();
     foreach (MyLineEdit *lineedit, my_lineEdit) {
-        //connect(lineedit, SIGNAL(clicked()), this, SLOT(on_clicked()));
-        //connect(lineedit, SIGNAL(LostFocus()), this, SLOT(on_focusout()));
+
     }
     QList<ComboBox *> my_ComboBox = this->findChildren<ComboBox *>();
     foreach (ComboBox *combobox, my_ComboBox) {
-        //connect(combobox, SIGNAL(clicked()), this, SLOT(on_clicked()));
-        //connect(combobox, SIGNAL(GetFocus()), this, SLOT(on_focusin()));
-        //connect(combobox, SIGNAL(LostFocus()), this, SLOT(on_focusout()));
+        ;
     }
+
+
+    take_cookie();
+
 }
 
 Login_Register::~Login_Register()
 {
-//    if(databs.isOpen())
-//    {
-//        databs.close();
-//    }
+
     delete ui;
 }
+void Login_Register::take_cookie()
+{
+    //先自动获取cookie
 
+    QMap<QString,QString> header;  //封装头部信息
+    header.insert(QString("Content-Type"),QString("application/json"));
+    QString imgurl=QString("http://swxin.top:8090/user/dologin");
+    QJsonObject obj;
+
+    //生成json
+    obj.insert("email", "18271661322@qq.com");
+    obj.insert("password", "123");
+    obj.insert("ip", getIP());
+    obj.insert("broswer", "PC");
+
+    QByteArray body = QJsonDocument(obj).toJson(QJsonDocument::Compact);
+    QString str(body);
+
+    bool result = http_login :: post_cookie(imgurl,header,body,cookie);
+    if (result)
+    {
+        ui->label_err->setText("获取COOKIE成功");
+        qDebug()<<cookie;
+    }
+}
+//密码隐藏
+void Login_Register::count_down_passward()
+{
+    if(ui->lineEdit_password->text().isEmpty())
+    {
+        ui->btn_Change_1->setVisible(false);
+        ui->btn_Change_1->setIcon(QIcon(":/image/btn_bukejian2.png"));
+        ui->btn_Change_1->setChecked(false);
+        ui->lineEdit_password->setEchoMode(QLineEdit::Password);
+    }
+    else {
+        ui->btn_Change_1->setVisible(true);
+    }
+
+}
+//服务器 ping
 bool Login_Register::ping_server(const QString ip)
 {
     QString cmdstr = QString("ping %1 -n 1 -w %2").arg(ip).arg(1000);
@@ -136,33 +188,12 @@ bool Login_Register::ping_server(const QString ip)
     }
 }
 
-//高4.25+
-void Login_Register::on_clicked()
-{
-    flag = 1;
-    show_soft();
-}
-void Login_Register::on_focusin()
-{
-    flag = 1;
-    show_soft();
-}
-//高4.17+(4.25 改)
-void Login_Register::on_focusout()
-{
-    flag = 0;
-    Sleep(300);
-    if( flag != 1 )
-    close_soft();
-}
-
-
-//高+4.10 下拉框
+// 下拉框 删除以前账户
 void Login_Register::remove_account(QString account)
 {
-    databs.deleteByaccount(account.toLongLong());//删除当前items
+    databs.deleteByaccount(account);//删除当前items
 }
-
+// 检查用户文件夹
 void Login_Register::Check_UserDir(QString account)
 {
     QDir *qd = new QDir();
@@ -179,18 +210,15 @@ void Login_Register::Check_UserDir(QString account)
         }
     }
 }
-
+//检查自动登录
 void Login_Register::CheckAutoLogin()
 {
     QDir *qd = new QDir;
-//5.7高注释  QString dir_str=QCoreApplication::applicationDirPath();
-//5.7高注释  bool exist = qd->exists(dir_str+"Login_info.ini");
-//5.7高修改
-    bool exist = qd->exists("HNNK_UI/Login_info.ini");
+
+    bool exist = qd->exists("Login_info/Login_info.ini");
     if(exist){
-//5.7高注释      setting=new QSettings(QCoreApplication::applicationDirPath()+"Login_info.ini",QSettings::IniFormat);//此时是在打开一个ini
-//5.7高修改
-    setting=new QSettings("HNNK_UI/Login_info.ini",QSettings::IniFormat);//此时是在打开一个ini
+
+    setting=new QSettings("Login_info/Login_info.ini",QSettings::IniFormat);//此时是在打开一个ini
     bool ischecked;
     if(setting->value("info/ischecked")=="true")
     {ischecked=true;}else{ischecked=false;}
@@ -200,7 +228,7 @@ void Login_Register::CheckAutoLogin()
     if(ui->checkBox_autoLogin->isChecked())
     {
         ui->combo_account->setCurrentText(setting->value("info/account").toString());
-        auto_login();
+        Login();
     }
 }
 
@@ -212,187 +240,8 @@ void Login_Register::Sleep(int msec)
     QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
 }
 
-void Login_Register::hideMainWindow()
-{
-//    m_MW.hide();//先隐藏APP主界面
-}
-void Login_Register::ReLogin()
-{
-//    m_MW->setWindowOpacity(0);
-//    m_MW->HNNK_UI_begin(m_MW->m_is_first);
-//    QTimer::singleShot(500, this, [=](){
-//        m_MW->hide();
-//        m_MW->HideHoverwindow();
-//    });
-//5.29    hoverWindow->hide();                    //高+ 2020.03.02
-    ui->label_err->clear();
-//    ui->label_err->setText("密码更改，重新登录");
-    ui->combo_account->lineEdit()->clear();
-    ui->lineEdit_password->clear();
-    this->show();
-    if(!ui->combo_account->hasFocus())            //6.15+ 让账号栏的comboBox获取到键盘焦点
-        {ui->combo_account->setFocus();}
-    ui->btn_Login->setEnabled(true);
-    ui->btn_Login->setText("登录");
-//    if(m_MW!=nullptr)
-//    {
-//        delete m_MW;
-//        m_MW=nullptr;
-//    }
-
-}
-
-void Login_Register::ReLogin1()
-{
-//    m_MW->hide();
-//    m_MW->HideHoverwindow();
-//5.29    hoverWindow->hide();                    //高+ 2020.03.02
-    if(ui->checkBox_autoLogin->isChecked()){
-        ui->checkBox_autoLogin->setChecked(false);//先取消自动登录
-//5.7高注释      setting=new QSettings(QCoreApplication::applicationDirPath()+"Login_info.ini",QSettings::IniFormat);//此时是在打开一个ini
-//5.7高修改
-        setting=new QSettings("HNNK_UI/Login_info.ini",QSettings::IniFormat);//此时是在打开一个ini
-        setting->setValue("info/account","");//记录此时用户账号
-        setting->setValue("info/ischecked","false");//记录此时用户设置的"下次自动登录"的状态
-    }
-    ui->label_err->clear();
-    ui->label_err->setText("已注销，请重新登录");
-    ui->combo_account->lineEdit()->clear();
-    ui->lineEdit_password->clear();
-    this->show();
-    if(!ui->combo_account->hasFocus())            //6.15+ 让账号栏的comboBox获取到键盘焦点
-        {ui->combo_account->setFocus();}
-    ui->btn_Login->setEnabled(true);
-    ui->btn_Login->setText("登录");
-
-//    if(m_MW!=nullptr)
-//    {
-//        delete m_MW;
-//        m_MW=nullptr;
-//    }
-    //SHOW要隐藏
-}
-
-void Login_Register::Delete_HoverWindow()
-{
-//5.29    if(hoverWindow){
-//5.29        delete hoverWindow;
-//5.29    }
-}
-
-void Login_Register::offline_login_auto()
-{
-    //读取用户输入的账号密码信息
-    std::string account = ui->combo_account->currentText().toStdString();
-    int uid = databs.query_uid(QString::fromStdString(account).toLongLong());
-    std::string  password_auto = databs.query(QString::fromStdString(account).toLongLong());
-    ui->lineEdit_password->setText(QString::fromStdString(password_auto));
 
 
-    ui->btn_Login->setText("登录中...");
-    ui->btn_Login->setEnabled(false);
-
-    Sleep(1000);                        //避免一闪而过，这里sleep了1秒
-
-    this->hide();
-//    if(!m_MW){
-//       m_MW=new MainWindow();
-//       connect(m_MW,SIGNAL(GoToReLogin()),this,SLOT(ReLogin()));
-//       connect(m_MW,SIGNAL(GoToReLogin1()),this,SLOT(ReLogin1()));
-//       connect(m_MW,&MainWindow::Close_Login,[=](){
-//       this->close();
-//       if(m_MW)
-//       {
-//              delete m_MW;
-//       }
-//       });
-//              m_MW->show();
-//       }
-//       else{
-//                if(m_MW->isHidden())
-//                {
-//                    m_MW->show();
-//                    m_MW->ShowHoverWindow();
-//                }
-//           }
-////            if(Value_first_login=="0"){
-////                m_MW->m_is_first=true;
-////            }else{
-////                m_MW->m_is_first=true;
-////            }
-//            m_MW->HNNK_UI_begin(m_MW->m_is_first);      //进入首页跳转
-
-            ui->btn_Login->setText("登录");
-            ui->btn_Login->setEnabled(true);
-
-            map_userInfo.insert("account",QString::fromStdString(account));
-            map_userInfo.insert("uid",QString::number(uid));
-            map_userInfo.insert("Login_state",QString::number(Login_state));//将登录状态传给mainwindow
-//            m_MW->SendUserInfo(map_userInfo,false);//将用户信息传给APP
-
-            //登录成功后判断当前账号在下拉框数据库中是否已经存在，若不存在则保存进去
-            if(!databs.query_comboBox(QString::fromStdString(account).toLongLong()))
-            {
-                databs.insert(QString::fromStdString(account).toLongLong());
-                ui->combo_account->increaseItem(QString::fromStdString(account));//设置下拉框items
-            }
-            qDebug("离线自动登录成功");
-}
-
-//自动登录(获取账号之后直接去本地数据库里查找密码)
-//自动登录成功后会收到服务器返回的成功的状态码，如果为真，则发送一个信号给主界面，主界面接收到信号之后，隐藏自动登录窗口，跳到主界面
-void Login_Register::auto_login()
-{
-    if(ping_server("124.172.189.59") == false)          //ping服务器失败，转离线模式
-    {
-        offline_login_auto();
-    }
-    else{
-
-        ui->btn_Login->setText("登录中...");
-        ui->btn_Login->setEnabled(false);
-        QString account_auto= ui->combo_account->currentText();//拿这个auto_account去数据库里找密码，同时把这个账户加密
-        QString UUID_auto=SignTool.UUID;
-        //    QString Time_auto=SignTool.Get_Time();
-        std::string  cipherText_password_auto;
-        cipherText_password_auto=databs.query(account_auto.toLongLong());//这里获取到的密码就是(base64Encode了的)密文
-        ui->lineEdit_password->setText(QString::fromStdString(cipherText_password_auto));
-
-        Sleep(1000);                                            //避免一闪而过，这里sleep了1秒
-
-        Document doc;
-        doc.SetObject();
-        Document::AllocatorType& allocator = doc.GetAllocator();
-
-        Value params(kObjectType);
-        Value str_account(kStringType);
-        Value str_password(kStringType);
-        Value str_sim(kStringType);
-
-        std::string account = account_auto.toStdString();
-        std::string password = cipherText_password_auto;
-        std::string sim = UUID_auto.toStdString();
-
-        map_sign.insert("account",QString::fromStdString(std::string(account)));//账号
-        map_sign.insert("password",QString::fromStdString(std::string(password)));//密码
-        map_sign.insert("sim",QString::fromStdString(std::string(sim)));//客户端识别码
-        QByteArray ba_sing=SignTool.sign(map_sign);
-
-        str_account.SetString(account.c_str(), account.length());
-        str_password.SetString(password.c_str(), password.length());
-        str_sim.SetString(sim.c_str(), sim.length());
-
-        params.AddMember("account", str_account, allocator);
-        params.AddMember("password", str_password, allocator);
-        params.AddMember("sim", str_sim, allocator);
-
-        m_pJRPCClient->m_pTransport->m_sign=ba_sing;
-        m_pJRPCClient->call("userLogin", params, 6);
-
-    }
-
-
-}
 
 void Login_Register::mousePressEvent(QMouseEvent *event)
 {
@@ -418,11 +267,7 @@ void Login_Register::mouseMoveEvent(QMouseEvent *event)
         }
 }
 
-//绘制背景底图
-void Login_Register::paintEvent(QPaintEvent *event)
-{
 
-}
 
 //设置登录快捷键
 void Login_Register::keyPressEvent(QKeyEvent* event)
@@ -470,127 +315,134 @@ void Login_Register::offline_login()
     //读取用户输入的账号密码信息
     std::string account = ui->combo_account->currentText().toStdString();
     std::string password = ui->lineEdit_password->text().toStdString();
-    int uid;
 
-    //根据账号在本地数据库中查询密码并核对用户输入是否正确
-    if(databs.query1(QString::fromStdString(account).toLongLong())==false)//数据库中不存在该账户
-    {
-        //把返回来的uid(和账号密码)存储到数据库中
-        ui->label_err->setText("请先连接网络");
-    }else{
-        std::string  query_password=databs.query(QString::fromStdString(account).toLongLong()); //查询数据库中存储的密码
-        uid = databs.query_uid(QString::fromStdString(account).toLongLong());
 
-        if(password != query_password)                           //核对输入的密码
-        {
-            ui->label_err->setText("密码错误！");
-        }else                                                   //输入的都是正确的，进行离线登录
-        {
+    //离线后面搞
+    this->hide(); //界面隐藏，然后进入界面并进行账号存储操作
+    //进入主界面三部曲
+    MainObject *mainObject=new MainObject(this);
+    mainObject->setInit();
+    LOADQSS(GlobalSpace::STYLE_QSS_FILE_PATH);
 
-            ui->btn_Login->setText("登录中...");
-            ui->btn_Login->setEnabled(false);
 
-            this->hide();
-            //蔡＋
-            MainObject *mainObject=new MainObject(this);
-            mainObject->setInit();
-            LOADQSS(GlobalSpace::STYLE_QSS_FILE_PATH);
-            ui->btn_Login->setText("登录");
-            ui->btn_Login->setEnabled(true);
 
-            map_userInfo.insert("account",QString::fromStdString(account));
-            map_userInfo.insert("uid",QString::number(uid));
-            map_userInfo.insert("Login_state",QString::number(Login_state));//将登录状态传给mainwindow
-//            m_MW->SendUserInfo(map_userInfo,false);//将用户信息传给APP
 
-            //登录成功后判断当前账号在下拉框数据库中是否已经存在，若不存在则保存进去
-            if(!databs.query_comboBox(QString::fromStdString(account).toLongLong()))
-            {
-                databs.insert(QString::fromStdString(account).toLongLong());
-                ui->combo_account->increaseItem(QString::fromStdString(account));//设置下拉框items
-            }
-            //高+4.10下拉框
-            if(ui->checkBox_autoLogin->isChecked())//勾选了下次自动登录(保存当前的账号和"下次自动登录"的状态到本地)
-            {
-                //先判断ini文件是否已经存在，若存在，则直接设置value，若不存在，则先新建再设置value
-                QDir *qd = new QDir;
-
-    //5.7高修改
-                bool exist = qd->exists("HNNK_UI/Login_info.ini");
-                if(exist){
-    //5.7高修改
-                    setting=new QSettings("HNNK_UI/Login_info.ini",QSettings::IniFormat);//此时是在打开一个ini
-                    setting->setValue("info/account",QString::fromStdString(account));//记录此时用户账号
-                    setting->setValue("info/ischecked","true");//记录此时用户设置的"下次自动登录"的状态
-                }else{
-    //5.7高修改
-                    setting=new QSettings("HNNK_UI/Login_info.ini",QSettings::IniFormat);//此时是在新建一个ini
-                    setting->setValue("info/account",QString::fromStdString(account));//记录此时用户账号
-                    setting->setValue("info/ischecked","true");//记录此时用户设置的"下次自动登录"的状态
-                }
-            }else{
-                QDir *qd = new QDir;
-
-    //5.7高修改
-                bool exist = qd->exists("HNNK_UI/Login_info.ini");
-                if(exist){
-
-    //5.7高修改
-                    setting=new QSettings("HNNK_UI/Login_info.ini",QSettings::IniFormat);//此时是在打开一个ini
-                    setting->setValue("info/account","");//记录此时用户账号
-                    setting->setValue("info/ischecked","false");//记录此时用户设置的"下次自动登录"的状态
-                }
-            }
-            qDebug("离线登录成功");
-        }
-    }
 }
 
 //登录
 void Login_Register::Login()
 {
     ui->label_err->clear();
+    //检查账号是否符合
+    bool check_account=CheckAccountNum();
 
-    if(ping_server("124.172.189.59") == false)          //ping服务器失败，转离线模式
+    if(check_account==true)
     {
-        offline_login();
+        if(ping_server("121.4.255.76") ==false)          //ping服务器失败，转离线模式
+        {
+            //离线登录
+            ui->label_err->setText("服务器关闭转离线登录");
+            offline_login();
+            qDebug()<<"离线登录";
+        }
+        else{
+            ui->label_err->setText("服务器开启正在登录");
+            ui->btn_Login->setText("登录中...");
+            ui->btn_Login->setEnabled(false);
+            QByteArray replyData;
+            QJsonObject obj;
+            QString imgurl=QString("http://swxin.top:8090/user/dologin");
+
+            QMap<QString,QString> header;  //封装头部信息
+            header.insert(QString("Content-Type"),QString("application/json"));
+            header.insert(QString("cookie"),cookie);
+            qDebug()<<header;
+            std::string account = ui->combo_account->currentText().toStdString();
+            std::string password = ui->lineEdit_password->text().toStdString();
+            //生成json
+            obj.insert("email", QString::fromStdString(std::string(account)));
+            obj.insert("password", QString::fromStdString(std::string(password)));
+            obj.insert("ip", getIP());
+            obj.insert("broswer", "PC");
+
+            QByteArray body = QJsonDocument(obj).toJson(QJsonDocument::Compact);
+            QString str(body);
+
+            bool result = http_login :: post_ourapi(imgurl,header,body,replyData);
+
+            if (result)
+            {
+               QJsonObject obj = QJsonDocument:: fromJson(replyData).object();
+               qDebug()<<obj;
+               double status = obj.value("status").toDouble();
+               QJsonValue val = obj.value("data");
+               if(val.isObject())
+               {
+                    username=val.toObject().value("username").toString();
+
+               }
+               ui->label_err->setText(obj.value("message").toString());
+               if(status==1)
+               {
+                   ui->btn_Login->setText("登录");
+                   qDebug()<<QString::fromStdString(std::string(account));
+                   ui->btn_Login->setEnabled(true);
+                   //登录成功后判断当前账号在下拉框数据库中是否已经存在，若不存在则保存进去
+                   Check_UserDir(QString::fromStdString(std::string(account)));
+                   //高+4.10下拉框
+                   if(!databs.query_comboBox(QString::fromStdString(account)))
+                   {
+                       databs.insert(QString::fromStdString(account));
+                       qDebug()<<QString::fromStdString(account).toLongLong();
+                       ui->combo_account->increaseItem(QString::fromStdString(account));//设置下拉框items
+                   }
+
+                   if(ui->checkBox_autoLogin->isChecked())//勾选了下次自动登录(保存当前的账号和"下次自动登录"的状态到本地)
+                   {
+                       //先判断ini文件是否已经存在，若存在，则直接设置value，若不存在，则先新建再设置value
+                       QDir *qd = new QDir;
+
+                       bool exist = qd->exists("Login_info/Login_info.ini");
+                       qDebug()<<exist<<"exist_status";
+                       if(exist){
+                           setting=new QSettings("Login_info/Login_info.ini",QSettings::IniFormat);//此时是在打开一个ini
+                           setting->setValue("info/account",QString::fromStdString(account));//记录此时用户账号
+                           setting->setValue("info/passward",QString::fromStdString(password));//记录此时用户密码
+                           setting->setValue("info/ischecked","true");//记录此时用户设置的"下次自动登录"的状态
+                       }else{
+                           setting=new QSettings("Login_info/Login_info.ini",QSettings::IniFormat);//此时是在新建一个ini
+                           setting->setValue("info/account",QString::fromStdString(account));//记录此时用户账号
+                           setting->setValue("info/passward",QString::fromStdString(password));//记录此时用户密码
+                           setting->setValue("info/ischecked","true");//记录此时用户设置的"下次自动登录"的状态
+                       }
+                   }else{
+                          //不勾选自动登录，无任何操作
+                   }
+                   this->hide();
+                   //蔡＋  登录主界面
+                   MainObject *mainObject=new MainObject(this);
+                   mainObject->setInit();
+                   LOADQSS(GlobalSpace::STYLE_QSS_FILE_PATH);
+
+
+               }else   //密码错误或者账户不存在，重新输入
+               {
+                ui->btn_Login->setEnabled(true);
+                ui->btn_Login->setText("登录");
+                }
+            }
+        }
     }
-    else{
-
-        ui->btn_Login->setText("登录中...");
-        ui->btn_Login->setEnabled(false);
-
-        Document doc;
-        doc.SetObject();
-        Document::AllocatorType& allocator = doc.GetAllocator();
-
-        Value params(kObjectType);
-        Value str_account(kStringType);
-        Value str_password(kStringType);
-        Value str_sim(kStringType);
-
-        std::string account = ui->combo_account->currentText().toStdString();
-        std::string password = ui->lineEdit_password->text().toStdString();
-        std::string sim = SignTool.UUID.toStdString();
-
-        map_sign.insert("account",QString::fromStdString(std::string(account)));//账号
-        map_sign.insert("password",QString::fromStdString(std::string(password)));//密码
-        map_sign.insert("sim",QString::fromStdString(std::string(sim)));//客户端识别码
-        QByteArray ba_sing=SignTool.sign(map_sign);
-
-        str_account.SetString(account.c_str(), account.length());
-        str_password.SetString(password.c_str(), password.length());
-        str_sim.SetString(sim.c_str(), sim.length());
-
-        params.AddMember("account", str_account, allocator);
-        params.AddMember("password", str_password, allocator);
-        params.AddMember("sim", str_sim, allocator);
-
-        m_pJRPCClient->m_pTransport->m_sign=ba_sing;
-        m_pJRPCClient->call("userLogin", params, 5);
-
+    else
+    {
+            //输入账号格式错误，进行恢复
+            ui->btn_Login->setEnabled(true);
+            ui->btn_Login->setText("登录");
     }
 }
+
+
+
 
 //打开官网
 void Login_Register::GoToOfficialWeb()
@@ -611,238 +463,94 @@ void Login_Register::Be_Close()
     HANDLE hProc = OpenProcess(PROCESS_ALL_ACCESS,FALSE,pid2); // 获取进程句柄
     if( hProc == NULL)
         {
-            qDebug() << "OpenProcess error ";
+            qDebug() << "正常退出 ";
             return;
         }
     BOOL ret = TerminateProcess(hProc,0); // 强制进程退出
         if(ret == FALSE)
         {
-            qDebug() << "TerminateProcess error ";
+            qDebug() << "强制退出 ";
             return ;
         }
         CloseHandle(hProc);
 
 
 }
+/**
+ * @brief 获取本机IP地址
+ */
 
-//3.20+
-void Login_Register::onResultReady(Value &result, int id)
+QString  Login_Register::getIP()
 {
-        switch(id) {
-        case 5://登录
-            if (result.IsString()) {
-                QString content = result.GetString();
-                qDebug("userLogin : %s", content.toUtf8().data());
-                Document doc;
-                if(!doc.Parse(content.toStdString().data()).HasParseError())
+    QString IP;
+    // 1. 获取所有网络接口
+    QList<QNetworkInterface> interfaces = QNetworkInterface::allInterfaces();
+
+    QList<QNetworkAddressEntry> entry;
+    foreach(QNetworkInterface inter, interfaces)
+    {
+        // 过滤掉不需要的网卡信息
+        if (is_virtual_network_card_or_loopback(inter.humanReadableName()))
+            continue;
+
+        if (inter.flags() & (QNetworkInterface::IsUp | QNetworkInterface::IsRunning))
+        {
+            entry = inter.addressEntries();
+            // entry.at(0) 是IPv6信息
+            if (entry.at(1).ip().protocol() == QAbstractSocket::IPv4Protocol)
+            {
+                if (-1 != inter.name().indexOf("wireless"))
                 {
-                    QString msg_back;
-                    int code;
-                    QString Value_account,Value_nickname,Value_user_id,Value_headimgurl,Value_headimg_suffix,Value_first_login;
-                    if(doc.HasMember("data") && doc["data"].IsObject()){
-                        const Value& result_data = doc["data"];
-                        Value_account=result_data["account"].GetString();
-                        Value_nickname=result_data["nickname"].GetString();
-                        Value_user_id=QString::number(result_data["user_id"].GetInt());
-                        Value_headimgurl=result_data["headimgurl"].GetString();
-                        Value_headimg_suffix=result_data["headimg_suffix"].GetString();
-                        Value_first_login=QString::number(result_data["first_login"].GetInt());
-
-                        qDebug() << "account = " << result_data["account"].GetString() << endl;
-                        qDebug() << "nickname = " << result_data["nickname"].GetString() << endl;
-                        qDebug() << "user_id = " << result_data["user_id"].GetInt() << endl;
-                        qDebug() << "headimgurl = " << result_data["headimgurl"].GetString() << endl;
-                        qDebug() << "headimg_suffix = " << result_data["headimg_suffix"].GetString() << endl;
-                        qDebug() << "first_login = " << result_data["first_login"].GetInt() << endl;
-                    }
-                    if (doc.HasMember("code") && doc["code"].IsInt()) {
-                        code = doc["code"].GetInt();
-                        qDebug() << "code=" << QString::number(code) <<endl;
-                    }
-                    if (doc.HasMember("msg") && doc["msg"].IsString()) {
-                        msg_back = doc["msg"].GetString();
-                        qDebug() << "msg: " << doc["msg"].GetString();
-                    }
-
-                if (code == 100) {// 请求成功
-                    //①先根据手机号在本地查询看是否已经保存过，如果没有保存过，
-                    //则把返回来的uid(和账号密码)存储到数据库中，如果保存过则跳过
-                    qDebug()<<"登陆成功"<<endl;
-                    //6.23+         监测当前用户在本地是否已经存在单独的一个文件夹，若无则新建，若有则跳过
-                    Check_UserDir(Value_account);
-
-                    this->hide();
-                    MainObject *mainObject=new MainObject(this);
-                    mainObject->setInit();
-                    LOADQSS(GlobalSpace::STYLE_QSS_FILE_PATH);
-//
-                    //////////////////////高+ 2020.03.02/////////////////
-
-                    ui->btn_Login->setText("登录");
-
-                    //高+4.10下拉框
-                    //登录成功后判断当前账号在下拉框数据库中是否已经存在，若不存在则保存进去
-                    if(!databs.query_comboBox(Value_account.toLongLong()))
-                    {
-                        databs.insert(Value_account.toLongLong());
-                        ui->combo_account->increaseItem(Value_account);//设置下拉框items
-                    }
-                    //高+4.10下拉框
-                    if(ui->checkBox_autoLogin->isChecked())//勾选了下次自动登录(保存当前的账号和"下次自动登录"的状态到本地)
-                    {
-                        //先判断ini文件是否已经存在，若存在，则直接设置value，若不存在，则先新建再设置value
-                        QDir *qd = new QDir;
-            //5.7高注释  QString dir_str=QCoreApplication::applicationDirPath();
-            //5.7高注释  bool exist = qd->exists(dir_str+"Login_info.ini");
-            //5.7高修改
-                        bool exist = qd->exists("HNNK_UI/Login_info.ini");
-                        if(exist){
-            //5.7高注释      setting=new QSettings(QCoreApplication::applicationDirPath()+"Login_info.ini",QSettings::IniFormat);//此时是在打开一个ini
-            //5.7高修改
-                            setting=new QSettings("HNNK_UI/Login_info.ini",QSettings::IniFormat);//此时是在打开一个ini
-                            setting->setValue("info/account",Value_account);//记录此时用户账号
-                            setting->setValue("info/ischecked","true");//记录此时用户设置的"下次自动登录"的状态
-                        }else{
-            //5.7高注释      setting=new QSettings(QCoreApplication::applicationDirPath()+"Login_info.ini",QSettings::IniFormat);//此时是在新建一个ini
-            //5.7高修改
-                            setting=new QSettings("HNNK_UI/Login_info.ini",QSettings::IniFormat);//此时是在新建一个ini
-                            setting->setValue("info/account",Value_account);//记录此时用户账号
-                            setting->setValue("info/ischecked","true");//记录此时用户设置的"下次自动登录"的状态
-                        }
-                    }else{
-                        QDir *qd = new QDir;
-            //5.7高注释  QString dir_str=QCoreApplication::applicationDirPath();
-            //5.7高注释  bool exist = qd->exists(dir_str+"Login_info.ini");
-            //5.7高修改
-                        bool exist = qd->exists("HNNK_UI/Login_info.ini");
-                        if(exist){
-            //5.7高注释      setting=new QSettings(QCoreApplication::applicationDirPath()+"Login_info.ini",QSettings::IniFormat);//此时是在打开一个ini
-            //5.7高修改
-                            setting=new QSettings("HNNK_UI/Login_info.ini",QSettings::IniFormat);//此时是在打开一个ini
-                            setting->setValue("info/account","");//记录此时用户账号
-                            setting->setValue("info/ischecked","false");//记录此时用户设置的"下次自动登录"的状态
-                        }
-                    }
-                    if(databs.query1(Value_account.toLongLong())==false)//数据库中不存在该账户
-                    {
-                        //把返回来的uid(和账号密码)存储到数据库中
-                        databs.insert(Value_user_id.toStdString(),Value_account.toLongLong(),std::string(ui->lineEdit_password->text().toStdString()));
-                    }else{
-                        std::string  cipher_password_update=databs.query(Value_account.toLongLong());
-                        if(cipher_password_update!=std::string(ui->lineEdit_password->text().toStdString()))//如果是改完密码之后再次登录，则需要把密码更新
-                        {
-                         databs.updateById(Value_account.toLongLong(),std::string(ui->lineEdit_password->text().toStdString()));
-                        }else
-                        {qDebug()<<"该账户在数据库中已存在"<<endl;}
-                    }
-                    //②保存昵称"name": "", 头像"headimgurl": "http://124.172.189.59:8888/APISET/data/images/defaultImg.png"
-                    map_userInfo.insert("name",Value_nickname);//昵称
-                    map_userInfo.insert("headimgurl",Value_headimgurl);
-                    map_userInfo.insert("state","online");
-                    map_userInfo.insert("account",Value_account);
-                    map_userInfo.insert("uid",Value_user_id);
-                    map_userInfo.insert("headimg_suffix",Value_headimg_suffix);
-                    map_userInfo.insert("Login_state",QString::number(Login_state));//将登录状态传给mainwindow
-//                    m_MW->SendUserInfo(map_userInfo,true);//将用户信息传给APP
-                }else if(code == 101){
-                    //请求失败，重新登录
-                    ui->btn_Login->setEnabled(true);
-                    //ui->label_err->setText("登录失败");
-                    ui->label_err->setText(msg_back);
-                    ui->btn_Login->setText("登录");
+                qDebug() << inter.humanReadableName() << inter.name() << " 无线网IP: " << entry.at(1).ip().toString();
+                IP=entry.at(1).ip().toString();
                 }
-               }
-            }
-            break;
-        case 6://自动登录
-            if (result.IsString()) {
-                QString content = result.GetString();
-                qDebug("user auto_Login : %s", content.toUtf8().data());
-                Document doc;
-                if(!doc.Parse(content.toStdString().data()).HasParseError())
+                else if (-1 != inter.name().indexOf("ethernet"))
                 {
-                    int code;
-                    QString msg_back;
-                    QString Value_account,Value_nickname,Value_user_id,Value_headimgurl,Value_headimg_suffix,Value_first_login;
-                    if(doc.HasMember("data") && doc["data"].IsObject()){
-                        const Value& result_data = doc["data"];
-                        Value_account=result_data["account"].GetString();
-                        Value_nickname=result_data["nickname"].GetString();
-                        Value_user_id=QString::number(result_data["user_id"].GetInt());
-                        Value_headimgurl=result_data["headimgurl"].GetString();
-                        Value_headimg_suffix=result_data["headimg_suffix"].GetString();
-                        Value_first_login=QString::number(result_data["first_login"].GetInt());
-
-                        qDebug() << "account = " << result_data["account"].GetString() << endl;
-                        qDebug() << "nickname = " << result_data["nickname"].GetString() << endl;
-                        qDebug() << "user_id = " << result_data["user_id"].GetInt() << endl;
-                        qDebug() << "headimgurl = " << result_data["headimgurl"].GetString() << endl;
-                        qDebug() << "headimg_suffix = " << result_data["headimg_suffix"].GetString() << endl;
-                        qDebug() << "first_login = " << result_data["first_login"].GetInt() << endl;
-                    }
-                    if (doc.HasMember("code") && doc["code"].IsInt()) {
-                        code = doc["code"].GetInt();
-                        qDebug() << "code=" << QString::number(code) <<endl;
-                    }
-                    if (doc.HasMember("msg") && doc["msg"].IsString()) {
-                        msg_back = doc["msg"].GetString();
-                        qDebug() << "msg: " << doc["msg"].GetString();
-                    }
-
-                if (code == 100) {// 请求成功
-                    //①先根据手机号在本地查询看是否已经保存过，如果没有保存过，则把返回来的uid(和账号密码)存储到数据库中，如果保存过则跳过
-                    qDebug()<<"登陆成功"<<endl;
-                    this->hide();
-
-                    //高+4.10下拉框
-                    //登录成功后判断当前账号在下拉框数据库中是否已经存在，若不存在则保存进去
-                    if(!databs.query_comboBox(Value_account.toLongLong()))
-                    {
-                        databs.insert(Value_account.toLongLong());
-                        ui->combo_account->increaseItem(Value_account);//设置下拉框items
-                    }
-                    //高+4.10下拉框
-
-                    MainObject *mainObject=new MainObject(this);
-                    mainObject->setInit();
-                    LOADQSS(GlobalSpace::STYLE_QSS_FILE_PATH);
-
-                    //②保存昵称"name": "", 头像"headimgurl": "http://124.172.189.59:8888/APISET/data/images/defaultImg.png"
-                    map_userInfo.insert("name",Value_nickname);//昵称
-                    map_userInfo.insert("headimgurl",Value_headimgurl);
-                    map_userInfo.insert("state","online");
-                    map_userInfo.insert("account",Value_account);
-                    map_userInfo.insert("uid",Value_user_id);
-                    map_userInfo.insert("headimg_suffix",Value_headimg_suffix);
-                    map_userInfo.insert("Login_state",QString::number(Login_state));//将登录状态传给mainwindow
-//                    m_MW->SendUserInfo(map_userInfo,true);//将用户信息传给APP
-                }else if(code == 101){
-                    //请求失败，重新登录
-                    ui->btn_Login->setEnabled(true);
-                    //ui->label_err->setText("登录失败");
-                    ui->label_err->setText(msg_back);
-                    ui->btn_Login->setText("登录");
+                    qDebug() << inter.humanReadableName() << inter.name() << " 以太网IP: " <<entry.at(1).ip().toString();
+                    IP=entry.at(1).ip().toString();
                 }
-               }
+
             }
-            break;
-        default:
-            break;
+           // entry.clear();
         }
+    }
+    return IP;
 }
 
-void Login_Register::onResultError(int code, QString message, Value &data, int id)
+
+/**
+ * @brief 检测当前网卡是否是虚拟网卡(VMware/VirtualBox)或回环网卡
+ * @param str_card_name  网卡的描述信息
+ * @return 如果是虚拟网卡或回环网卡，返回true, 否则返回false
+ */
+bool Login_Register::is_virtual_network_card_or_loopback(QString str_card_name)
 {
-    qDebug("JsonRPC call id %id error code %d: %s", id, code, message.toUtf8().data());
+    if (-1 != str_card_name.indexOf("VMware")
+            || -1 != str_card_name.indexOf("Loopback")
+            || -1 != str_card_name.indexOf("VirtualBox")
+            )
+        return true;
+
+    return false;
 }
 
-void Login_Register::onError(int code, QString message)
+//账号检测
+bool Login_Register::CheckAccountNum()
 {
-    qDebug("error code %d: %s", code, message.toUtf8().data());
-}
 
-void Login_Register::onSent(long bytes)
-{
+    //验证是否是手机号格式
+    QString AccountNum=QString::fromStdString(std::string(ui->combo_account->currentText().toStdString()));
+    qDebug()<<AccountNum;
+    if(rx.exactMatch(AccountNum))
+    {
+        ui->label_err->setText("账号格式正确");
+        ui->btn_Login->setEnabled(false);
+        return true;
+    }else{
+        ui->label_err->setText("账号格式错误，请输入邮箱格式");
+        ui->btn_Login->setEnabled(true);
+        AccountNum.clear();
+        return false;
+    }
 
 }
-//3.20+
